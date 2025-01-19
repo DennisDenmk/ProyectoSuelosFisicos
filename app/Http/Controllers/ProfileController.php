@@ -9,21 +9,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
+
 class ProfileController extends Controller
 {
     public function show(){
-        return 'Login';
+        return view('auth.login');
     }
     public function login(Request $request)
     {
         // Validar las credenciales de entrada
         $credentials = $request->validate([
-            'cedula' => 'required', // Validar el campo USER_CEDULA
-            'password' => 'required',
+            'user_email' => 'required',
+            'password' => 'required|string',
         ]);
-
-        // Intentar autenticación con USER_CEDULA y contraseña
-        if (Auth::attempt(['USER_CEDULA' => $credentials['cedula'], 'password' => $credentials['password']])) {
+       
+        // Intentar autenticar con 'user_email' y 'password'
+        if (Auth::attempt(['user_email' => $credentials['user_email'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard'); // Redirige al dashboard o ruta protegida
@@ -31,7 +32,7 @@ class ProfileController extends Controller
 
         // Si falla, devolver con un mensaje de error
         return back()->withErrors([
-            'cedula' => 'Las credenciales no son correctas.',
+            'user_email' => 'Las credenciales no son correctas.',
         ]);
     }
 
@@ -50,7 +51,7 @@ class ProfileController extends Controller
     {
         $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
+        if ($request->user()->isDirty('user_email')) {
             $request->user()->email_verified_at = null;
         }
 
@@ -77,6 +78,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::to('login');
     }
 }

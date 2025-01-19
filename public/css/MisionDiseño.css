@@ -1,0 +1,74 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #80B155, #8DBC55, #C3E956, #14532D);
+    color: #003300;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(70deg, #14532D, #32B225, #14532D);
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    width: 80%; /* Reduce el ancho total */
+    max-width: 650px; /* Establece un ancho máximo más pequeño */
+    background: linear-gradient(to bottom, #32B225, #14532D);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Reduce el relleno */
+    gap: 20px;
+}
+
+/* Columna Derecha */
+.right-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px; /* Reduce el relleno interno */
+    background-color: #a4dc9f;
+    border-radius: 10px;
+    width: 100%; /* Haz que ocupe todo el ancho disponible */
+    max-width: 600px; /* Define un límite máximo más pequeño */
+    margin: 0 auto; /* Centra el contenedor */
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #8DBC55;
+}
+
+.btnvol {
+    margin-left: auto;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #FFFDEE;
+    color: #336A29;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btnvol:hover {
+    background-color: #8DBC55;
+}
