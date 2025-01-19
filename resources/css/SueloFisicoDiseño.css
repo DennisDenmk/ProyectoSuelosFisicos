@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #80B155, #8DBC55, #C3E956, #14532D);
+    color: #fff;
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+}
+
+/*superior cabeza*/
+.Superior {
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(70deg, #14532D, #32B225, #14532D);
+    padding: 10px;
+
+}
+
+/*menu*/
+.menu {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(70deg, #14532D, #32B225, #14532D);
+    padding: 0px 20px;
+}
+
+.menuDes {
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+}
+
+nav {
+    height: 100%;
+
+}
+
+nav>ul {
+    height: 100%;
+    display: flex;
+}
+
+nav ul li {
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+
+nav>ul>li>a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 14px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 300ms ease;
+}
+
+nav ul li a:hover {
+    transform: scale(1.1);
+    background-color: #C3E956;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+/*SubMenu*/
+nav ul li ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #14532D;
+    top: 90px;
+    left: -5px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: all 300ms ease;
+
+}
+
+nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    top: 70px;
+}
+
+nav ul li ul:before {
+    color: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+    top: -12px;
+    left: 20px;
+
+}
+
+nav ul li ul li a {
+    display: block;
+    color: white;
+    padding: 6px;
+    padding-left: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+}
+
+nav ul li ul li a:hover {
+    background: #80B155;
+    color: #fff;
+    transform: scale(1.1);
+    padding-left: 10px;
+    font-size: 14px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor principal */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Ocupa el 80% de la altura de la pantalla */
+}
+
+/* Diseño de dos columnas */
+.columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    width: 80%;
+    /* Controla el ancho general del contenedor */
+}
+
+/* Columna izquierda */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+}
+
+.soil-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+/* Columna derecha */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    width: 50%;
+}
+
+.select-box {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    width: 70%;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #2e7d32;
+    background-color: white;
+    border: 2px solid #2e7d32;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.action-button:hover {
+    background-color: #c8e6c9;
+}

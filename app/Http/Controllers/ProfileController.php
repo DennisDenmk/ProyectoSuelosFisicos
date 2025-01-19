@@ -11,9 +11,9 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
+    public function show(){
+        return 'Login';
+    }
     public function login(Request $request)
     {
         // Validar las credenciales de entrada

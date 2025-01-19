@@ -3,10 +3,24 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
+//Rutas de prueba
 Route::get('/', function () {
-    return view('index');
+    return view('login');
+});
+Route::get('/muestra', function () {
+    return view('Muestra');
+})-> name('muestra');
+
+Route::get('/home', function () {
+    return view('PrimerPag');
+})-> name('home');
+
+Route::get('/Suelofisico', function () {
+    return view('SueloFisico');
 });
 
+//login
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
