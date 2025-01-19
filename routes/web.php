@@ -21,6 +21,11 @@ Route::get('/Suelofisico', function () {
 });
 
 //login
+Route::get('login', [ProfileController::class, 'show'])->name('login');
+
+// Ruta para procesar los datos del formulario (POST)
+Route::post('login', [ProfileController::class, 'login']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

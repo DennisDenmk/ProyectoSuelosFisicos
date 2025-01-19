@@ -1,0 +1,139 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #80B155, #8DBC55, #C3E956, #14532D);
+    color: #003300;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(70deg, #14532D, #32B225, #14532D);
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    background: linear-gradient(to bottom, #32B225, #14532D);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Columna Izquierda */
+.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #a4dc9f;
+    border-radius: 10px;
+}
+
+.info-box {
+    background-color: #e6ffe6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Columna Derecha */
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Si también deseas centrarla verticalmente, usa "center" */
+    align-items: center; /* Centra horizontalmente el contenido de la columna */
+    padding: 20px;
+    background-color: #a4dc9f;
+    border-radius: 10px;
+}
+
+/* Imagen dentro de la columna derecha */
+.right-column img {
+    max-width: 100%; /* Asegura que la imagen no exceda el tamaño del contenedor */
+    height: auto; /* Mantiene las proporciones */
+    margin: auto; /* Agrega espacio uniforme alrededor */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #2e7d32;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.action-button:hover {
+    background-color: #45a049;
+}
+
+.btn {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #FFFDEE;
+    color: #336A29;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #8DBC55;
+}
+
+.btnvol {
+    margin-left: auto;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #FFFDEE;
+    color: #336A29;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btnvol:hover {
+    background-color: #8DBC55;
+}

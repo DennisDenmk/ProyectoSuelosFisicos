@@ -47,10 +47,20 @@ class User extends Authenticatable
             'user_nombre' => $data['user_nombre'],
             'user_apellido' => $data['user_apellido'],
             'user_email' => $data['user_email'],
-            'user_password' => Hash::make($data['user_password']), // Hashea la contraseña
+            'user_password' => Hash::make($data['user_password']), 
             'user_telefono' => $data['user_telefono'],
             'user_estado' => $data['user_estado'],
         ]);
+    }
+    // Método para obtener el nombre del campo para la autenticación
+    public function getAuthIdentifierName()
+    {
+        return 'user_email';  // Cambia 'email' por 'user_email'
+    }
+    
+    public function getAuthPassword()
+    {
+        return $this->user_password;
     }
 
 }

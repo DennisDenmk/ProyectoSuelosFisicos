@@ -7,8 +7,9 @@
 
         <!-- Email Address -->
         <div>
-            <label for="cedula">Cédula</label>
-            <input type="text" id="cedula" name="cedula" required>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="user_email" class="block mt-1 w-full" type="email" name="user_email" :value="old('user_email')"/>
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
