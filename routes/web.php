@@ -4,9 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
-//Rutas de prueba
+
 Route::get('/', function () {
-    return view('login');
+    return view('PrimerPag');
 });
 Route::get('/muestra', function () {
     return view('Muestra');
@@ -16,15 +16,14 @@ Route::get('/home', function () {
     return view('PrimerPag');
 })-> name('home');
 
-Route::get('/Suelofisico', function () {
-    return view('SueloFisico');
-});
-
 //login
 Route::get('login', [ProfileController::class, 'show'])->name('login');
-
-// Ruta para procesar los datos del formulario (POST)
 Route::post('login', [ProfileController::class, 'login']);
+
+//ingreso a primera
+Route::get('/Parcela-datos', function () {
+    return view('PrimerPag');
+})-> name('parcelas');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informacion Suelo</title>
-    <link rel="stylesheet" href="../CSS/InfoSueloDiseño.css">
+    <link rel="stylesheet" href="{{ asset('css/InfoSueloDiseño.css') }}">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
         <!-- Columna Derecha -->
         <div class="right-column">
             <form>
-                <img src="../Imagenes/Triangulo.jpeg" alt="Triangulo de Propiedades" width="300" >
+                <img src="{{asset('image/InfoSueloDiseño.css')}}" alt="Triangulo de Propiedades" width="300" >
             </form>
         </div>
     </div>

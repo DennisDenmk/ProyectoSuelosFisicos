@@ -27,7 +27,7 @@ class ProfileController extends Controller
         if (Auth::attempt(['user_email' => $credentials['user_email'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard'); // Redirige al dashboard o ruta protegida
+            return redirect()->intended('parcelas'); // Redirige al dashboard o ruta protegida
         }
 
         // Si falla, devolver con un mensaje de error
@@ -80,4 +80,5 @@ class ProfileController extends Controller
 
         return Redirect::to('login');
     }
+    
 }
