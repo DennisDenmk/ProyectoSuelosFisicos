@@ -20,17 +20,17 @@ class RegisterController extends Controller
             // Datos para crear el usuario
             $data = [
                 'tipus_id' => 1, // ID de tipo válido
-                'user_cedula' => '1004897456',
-                'user_nombre' => 'Juan',
+                'user_cedula' => '1002625837',
+                'user_nombre' => 'Paco',
                 'user_apellido' => 'Varela',
-                'user_email' => 'juon@gmail.com',
-                'user_password' => 'admin123', // Contraseña en texto plano (será hasheada)
-                'user_telefono' => '0987242851',
+                'user_email' => 'paco@gmail.com',
+                'user_password' => Hash::make('admin123'),
+                'user_telefono' => '0987242576',
                 'user_estado' => true,
             ];
 
             // Crear usuario
-            $usuario = User::createUser($data);
+            $usuario = User::create($data); // Cambié `User::createUser` por `User::create`, que es el método estándarta);
 
             return response()->json([
                 'message' => 'Usuario creado con éxito.',
