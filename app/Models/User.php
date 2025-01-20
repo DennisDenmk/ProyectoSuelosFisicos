@@ -52,6 +52,7 @@ class User extends Authenticatable
             'user_estado' => $data['user_estado'],
         ]);
     }
+    
     // Método para obtener el nombre del campo para la autenticación
     public function getAuthIdentifierName()
     {
@@ -62,5 +63,11 @@ class User extends Authenticatable
     {
         return $this->user_password;
     }
+    
+    public function parcelas()
+    {
+        return $this->hasMany(Parcela::class, 'user_id', 'user_id');
+    }
+   
 
 }

@@ -16,7 +16,6 @@
                 <li><a href="{{route('login')}}">Suelo Físico</a></li>
                 <li><a href="#">Suelo Químico</a></li>
                 <li><a href="#">Suelo Biológico</a></li>
-                <li><a href="{{route('login')}}">Cerrar Sesión</a></li>
             </ul>
         </nav>
     </header>
