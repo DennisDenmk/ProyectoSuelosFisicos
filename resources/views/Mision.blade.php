@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mision Suelo Fisico</title>
-    <link rel="stylesheet" href="../CSS/MisionDiseño.css">
+    <link rel="stylesheet" href="{{ asset('css/MisionDiseño.css')}}"">
 </head>
 
 <body>
 
     <header class="header">
         <h2>Mision</h2>
-        <a href="../HTML/SueloFisico.html" class="btnvol">Volver</a>
+        <a href="{{route('suelofisico')}}" class="btnvol">Volver</a>
     </header>
 
 

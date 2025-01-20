@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soil Management</title>
-    <link rel="stylesheet" href="../CSS/PrimeraPagDiseño.css">
+    <link rel="stylesheet" href="{{ asset('css/PrimeraPagDiseño.css')}}">
 </head>
 
 <body>
@@ -13,10 +13,10 @@
         <h1>SOIL MANAGEMENT</h1>
         <nav>
             <ul>
-                <li><a href="../HTML/SueloFisico.html">Suelo Físico</a></li>
+                <li><a href="{{route('login')}}">Suelo Físico</a></li>
                 <li><a href="#">Suelo Químico</a></li>
                 <li><a href="#">Suelo Biológico</a></li>
-                <li><a href="../HTML/Login.html">Cerrar Sesión</a></li>
+                <li><a href="{{route('login')}}">Cerrar Sesión</a></li>
             </ul>
         </nav>
     </header>
