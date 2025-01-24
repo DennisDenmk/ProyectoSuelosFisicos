@@ -18,43 +18,45 @@ class ProfileController extends Controller
     {
         return view('auth.login');
     }
+   
+
     public function login(Request $request)
-{
-    // Validar las credenciales de entrada
-    $credentials = $request->validate([
-        'user_email' => 'required|string|email|max:255',
-        'password' => 'required|string',
-    ]);
+    {
+        // Validar las credenciales de entrada
+        $credentials = $request->validate([
+            'user_cedula' => 'required|string|max:255',
+            'password' => 'required|string',
+        ]);
 
-    // Intentar autenticar al usuario
-    $user = User::where('user_email', $credentials['user_email'])->first();
+        // Intentar autenticar al usuario
+        $user = User::where('user_cedula', $credentials['user_cedula'])->first();
 
-    // Verificar que el usuario existe y la contraseña es correcta
-    if ($user && Hash::check($credentials['password'], $user->user_password)) {
-        // Autenticar al usuario
-        Auth::login($user);
+        // Verificar que el usuario existe y la contraseña es correcta
+        if ($user && Hash::check($credentials['password'], $user->user_password)) {
+            // Autenticar al usuario
+            Auth::login($user);
 
-        // Obtener el tipo de usuario (TIPUS_ID)
-        $tipoUsuario = $user->tipus_id;
+            $tipoUsuario = $user->tipus_id;
 
-        // Redirigir según el tipo de usuario
-        if ($tipoUsuario == 1) {
-            // Tipo 1: Redirigir a la página de inicio
-            return redirect()->intended('/home');
-        } elseif ($tipoUsuario == 2) {
-            // Tipo 2: Redirigir a la página de dashboard
-            return redirect()->intended('/dashboard');
-        } else {
-            // Para otros tipos de usuario
-            return redirect()->intended('/dashboard');
+            // Redirigir según el tipo de usuario
+            if ($tipoUsuario == 1) {
+                // Tipo 1: Redirigir a la página de inicio
+               return redirect()->intended('/parcelas');
+               
+            } elseif ($tipoUsuario == 2) {
+                // Tipo 2: Redirigir a la página de dashboard
+                return redirect()->intended('/dashboard');
+            } else {
+                // Para otros tipos de usuario
+                return redirect()->intended('/dashboard');
+            }
         }
-    }
 
-    // Si la autenticación falla, redirigir con error
-    return back()->withErrors([
-        'user_email' => 'Las credenciales no son correctas.',
-    ]);
-}
+        // Si la autenticación falla, redirigir con error
+        return back()->withErrors([
+            'user_email' => 'Las credenciales no son correctas.',
+        ]);
+    }
 
 
 
