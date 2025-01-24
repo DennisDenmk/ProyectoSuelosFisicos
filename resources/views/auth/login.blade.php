@@ -7,9 +7,9 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="user_email" class="block mt-1 w-full" type="email" name="user_email" :value="old('user_email')"/>
-            <x-input-error :messages="$errors->get('user_email')" class="mt-2" />
+            <x-input-label for="email" :value="__('Cedula')" />
+            <x-text-input id="user_cedula" class="block mt-1 w-full" type="" name="user_cedula" :value="old('user_cedula')"/>
+            <x-input-error :messages="$errors->get('user_cedula')" class="mt-2" />
         </div>
 
         <!-- Password -->
