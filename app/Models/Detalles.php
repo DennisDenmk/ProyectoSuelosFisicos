@@ -11,6 +11,7 @@ class Detalles extends Model
 
     protected $table = 'sm_f_detalles';
     protected $primaryKey = 'detal_id';
+    public $timestamps = false; // Desactivar manejo de timestamps
 
     protected $fillable = [
         'estru_id',

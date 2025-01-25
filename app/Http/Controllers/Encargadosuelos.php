@@ -15,10 +15,6 @@ class Encargadosuelos extends Controller
     {
         return view('parcelas');
     }
-    public function verregistro()
-    {
-        return view('RegistroSuelo');
-    }
 
     public function crear(Request $request)
     {
@@ -87,12 +83,14 @@ class Encargadosuelos extends Controller
             $detalle = Detalles::create($validatedData);
     
             // Crear la muestra relacionada con este detalle, usando el DETAL_ID como MUEST_ID
+            
             $muestra = MUESTRA::create([
                 'muest_id' => $detalle->detal_id, // Usar DETAL_ID como MUEST_ID
-                'parc_id' => $request->parc_id, // Suponiendo que el ID de la parcela es proporcionado
+                'parc_id' => 7, // Suponiendo que el ID de la parcela es proporcionado
                 'detal_id' => $detalle->detal_id, // Relacionamos con el detalle recién creado
                 'muest_fecharegistro' => now(), // Fecha de registro de la muestra
             ]);
+            
     
             // Si todo fue correcto, devolver mensaje de éxito
             return back()->with('success', 'Muestra Registrada con exito');

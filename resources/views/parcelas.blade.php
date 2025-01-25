@@ -57,10 +57,10 @@
         </div>
     @endif
 
-    <form action="{{ url('/RegistroMuestra') }}" method="GET">
+    <form action="{{ route('muestras') }}" method="GET">
         <button type="submit" class="btn btn-primary">Ir a Registro</button>
     </form>
-    
+
 
 </body>
 

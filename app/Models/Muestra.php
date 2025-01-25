@@ -21,13 +21,12 @@ class Muestra extends Model
         'muest_fecharegistro',
     ];
     public function detalle()
-{
-    return $this->belongsTo(Detalles::class, 'detal_id', 'detal_id');
-}
+    {
+        return $this->belongsTo(Detalles::class, 'detal_id', 'detal_id');
+    }
 
-public function parcela()
-{
-    return $this->belongsTo(Parcela::class, 'parc_id', 'parc_id');
-}
-
+    public function parcela()
+    {
+        return $this->belongsTo(Parcela::class, 'parc_id', 'parc_id');
+    }
 }
