@@ -10,11 +10,6 @@ Route::get('/', function () {
     return view('PrimerPag');
 });
 
-Route::get('/muestra', function () {
-    return view('Muestra');
-})-> name('muestra');
-
-
 //login
 Route::get('login', [ProfileController::class, 'show'])->name('login');
 Route::post('login', [ProfileController::class, 'login']);

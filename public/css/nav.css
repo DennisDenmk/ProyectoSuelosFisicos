@@ -1,0 +1,131 @@
+/* Navbar */
+nav.bg-green-700 {
+    background-color: #2F855A; /* Verde 700 */
+    padding: 1rem;
+}
+
+nav.text-white {
+    color: white;
+}
+
+/* Contenedor principal */
+nav .max-w-7xl {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+nav .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+nav a.text-2xl {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Enlaces del nav */
+nav .space-x-4 {
+    display: flex;
+    gap: 1rem;
+}
+
+nav .hover\:text-green-200:hover {
+    color: #B6F6B1; /* Verde 200 */
+}
+
+/* Dropdown */
+nav .relative {
+    position: relative;
+}
+
+nav button.flex.items-center {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover para el botón de dropdown */
+nav button.hover\:bg-green-600:hover {
+    background-color: #38A169; /* Verde 600 */
+}
+
+/* Icono del dropdown */
+nav svg.w-4.h-4 {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Menu desplegable */
+nav .absolute {
+    position: absolute;
+    display: none;
+    background-color: white;
+    color: #2F855A;
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    width: 12rem;
+    right: 0;
+}
+
+nav .absolute.hidden {
+    display: none;
+}
+
+nav .absolute:not(.hidden) {
+    display: block;
+}
+
+/* Estilo de los botones en el dropdown */
+nav .btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    text-align: center;
+    background-color: #38A169; /* Verde 600 */
+    color: white;
+    border-radius: 0.375rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+nav .btn:hover {
+    background-color: #2F855A; /* Verde 700 */
+}
+
+/* Cambios para el botón de logout */
+nav form button.underline {
+    font-size: 0.875rem;
+    text-decoration: underline;
+    color: #4B5563; /* Gray 600 */
+    transition: color 0.3s;
+}
+
+nav form button.underline:hover {
+    color: #1F2937; /* Gray 900 */
+}
+
+/* Estilo del botón de logout en dark mode */
+nav form button.dark\:text-gray-400 {
+    color: #D1D5DB; /* Gray 400 en dark mode */
+}
+
+nav form button.dark\:hover\:text-gray-100:hover {
+    color: #F3F4F6; /* Gray 100 en dark mode */
+}
+
+/* Asegurar que el texto en el boton de logout sea legible en dark mode */
+nav form button.dark\:focus\:ring-indigo-500 {
+    outline: 2px solid #6366F1; /* Indico color para el focus */
+}
+
+nav form button.focus\:outline-none:focus {
+    outline: none;
+}
