@@ -54,7 +54,7 @@ class ProfileController extends Controller
 
         // Si la autenticación falla, redirigir con error
         return back()->withErrors([
-            'user_email' => 'Las credenciales no son correctas.',
+            'user_cedula' => 'Las credenciales no son correctas.',
         ]);
     }
 
