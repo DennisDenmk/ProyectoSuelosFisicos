@@ -56,6 +56,17 @@ class Detalles extends Model
     }
     public function parcela()
     {
-        return $this->belongsTo(Parcela::class, 'parc_id'); 
+        return $this->belongsTo(Parcela::class, 'parc_id');
     }
+    // En el modelo Detalles
+    public function porosidad()
+    {
+        return $this->belongsTo(Porosidad::class, 'poros_id', 'poros_id');
+    }
+    public function estructura()
+    {
+        return $this->belongsTo(Estructura::class, 'estru_id', 'estru_id');
+    }
+
+   
 }

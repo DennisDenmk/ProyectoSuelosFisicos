@@ -10,7 +10,7 @@ class Parcela extends Model
     use HasFactory;
 
     // Tabla asociada al modelo
-    protected $table = 'sm_q_parcelas';
+    protected $table = 'sm_parcelas';
 
     // Llave primaria de la tabla
     protected $primaryKey = 'parc_id';

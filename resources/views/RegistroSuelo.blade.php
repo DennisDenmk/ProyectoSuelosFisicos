@@ -48,11 +48,6 @@
                 <label for="estru_id" class="form-label">Estructura ID</label>
                 <input type="text" class="form-control" id="estru_id" name="estru_id" maxlength="5" required>
             </div>
-            <!-- Poros ID -->
-            <div class="mb-3">
-                <label for="poros_id" class="form-label">Porosidad ID</label>
-                <input type="text" class="form-control" id="poros_id" name="poros_id" maxlength="5" required>
-            </div>
             <!-- Detal Arena -->
             <div class="mb-3">
                 <label for="detal_arena" class="form-label">Porcentaje de Arena</label>
