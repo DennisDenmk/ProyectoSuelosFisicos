@@ -69,7 +69,6 @@ class Encargadosuelos extends Controller
             // Validar los datos para el detalle
             $validatedDetalle = $request->validate([
                 'estru_id' => 'required|string|max:5',
-                'poros_id' => 'required|string|max:5',
                 'detal_arena' => 'required|numeric',
                 'detal_limo' => 'required|numeric',
                 'detal_arcilla' => 'required|numeric',
@@ -78,8 +77,38 @@ class Encargadosuelos extends Controller
                 'detal_porosidad' => 'required|numeric',
             ]);
 
-            // Crear el detalle
-            $detalle = Detalles::create($validatedDetalle);
+            // Asignar el valor de porosidad según detal_porosidad
+            $porosidad = 0;
+            $poros_id = '';
+
+            if ($validatedDetalle['detal_porosidad'] > 30) {
+                $porosidad = 1;  // Macroporos grandes (>30 µm)
+                $poros_id = 'MP1';
+            } elseif ($validatedDetalle['detal_porosidad'] >= 9 && $validatedDetalle['detal_porosidad'] <= 30) {
+                $porosidad = 2;  // Macroporos pequeños (30-9 µm)
+                $poros_id = 'MP2';
+            } elseif ($validatedDetalle['detal_porosidad'] >= 3 && $validatedDetalle['detal_porosidad'] < 9) {
+                $porosidad = 3;  // Mesoporos grandes (9-3 µm)
+                $poros_id = 'MS1';
+            } elseif ($validatedDetalle['detal_porosidad'] >= 0.2 && $validatedDetalle['detal_porosidad'] < 3) {
+                $porosidad = 4;  // Mesoporos pequeños (3-0.2 µm)
+                $poros_id = 'MS2';
+            } else {
+                $porosidad = 5;   // Microporos (<0.2 µm)
+                $poros_id = 'MI';
+            }
+
+            // Crear el detalle con la porosidad asignada
+            $detalle = Detalles::create([
+                'estru_id' => $validatedDetalle['estru_id'],
+                'poros_id' => $poros_id,  // Asignar porosidad calculada
+                'detal_arena' => $validatedDetalle['detal_arena'],
+                'detal_limo' => $validatedDetalle['detal_limo'],
+                'detal_arcilla' => $validatedDetalle['detal_arcilla'],
+                'detal_pesohumedo' => $validatedDetalle['detal_pesohumedo'],
+                'detal_pesoseco' => $validatedDetalle['detal_pesoseco'],
+                'detal_porosidad' => $porosidad, // Asignar el valor numérico para porosidad
+            ]);
 
             // Validar los datos para la muestra
             $validatedMuestra = $request->validate([
