@@ -60,6 +60,9 @@
     <form action="{{ route('muestras') }}" method="GET">
         <button type="submit" class="btn btn-primary">Ir a Registro</button>
     </form>
+    <form action="{{ route('verregistro') }}" method="GET">
+        <button type="submit" class="btn btn-primary">Ver Muestras</button>
+    </form>
 
 
 </body>
