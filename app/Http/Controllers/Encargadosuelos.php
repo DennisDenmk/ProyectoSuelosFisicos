@@ -65,10 +65,9 @@ class Encargadosuelos extends Controller
     }
     public function crearMuestras(Request $request)
     {
-        
         try {
-            // Validar los datos de entrada para el detalle
-            $validatedData = $request->validate([
+            // Validar los datos para el detalle
+            $validatedDetalle = $request->validate([
                 'estru_id' => 'required|string|max:5',
                 'poros_id' => 'required|string|max:5',
                 'detal_arena' => 'required|numeric',
@@ -78,29 +77,30 @@ class Encargadosuelos extends Controller
                 'detal_pesoseco' => 'required|numeric',
                 'detal_porosidad' => 'required|numeric',
             ]);
-    
+
             // Crear el detalle
-            $detalle = Detalles::create($validatedData);
-    
-            // Crear la muestra relacionada con este detalle, usando el DETAL_ID como MUEST_ID
-            
+            $detalle = Detalles::create($validatedDetalle);
+
+            // Validar los datos para la muestra
+            $validatedMuestra = $request->validate([
+                'parc_id' => 'required|numeric', // Validación solo para parc_id
+            ]);
+
+            // Crear la muestra relacionada con el detalle
             $muestra = MUESTRA::create([
                 'muest_id' => $detalle->detal_id, // Usar DETAL_ID como MUEST_ID
-                'parc_id' => 7, // Suponiendo que el ID de la parcela es proporcionado
+                'parc_id' => $validatedMuestra['parc_id'], // Usar el parc_id recibido del formulario
                 'detal_id' => $detalle->detal_id, // Relacionamos con el detalle recién creado
                 'muest_fecharegistro' => now(), // Fecha de registro de la muestra
             ]);
-            
-    
+
             // Si todo fue correcto, devolver mensaje de éxito
-            return back()->with('success', 'Muestra Registrada con exito');
-    
+            return back()->with('success', 'Muestra Registrada con éxito');
         } catch (\Exception $e) {
             // En caso de error, devolver el mensaje de error
             return back()->withErrors([
                 'error' => 'Ocurrió un error: ' . $e->getMessage(),
             ]);
-        }return back()->withErrors(['error' => 'Ocurrió un error: ' . $e->getMessage()]);
-        
+        }
     }
 }

@@ -20,7 +20,7 @@ class Muestra extends Model
         'detal_id',
         'muest_fecharegistro',
     ];
-    public function detalle()
+    public function detalles()
     {
         return $this->belongsTo(Detalles::class, 'detal_id', 'detal_id');
     }

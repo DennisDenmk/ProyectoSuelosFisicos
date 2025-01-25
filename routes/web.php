@@ -2,6 +2,7 @@
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Encargadosuelos;
+use App\Http\Controllers\VistaController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,7 +44,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/parcelas/create', [Encargadosuelos::class, 'crear'])->name('parcelas.create');
     Route::get('/RegistroMuestra/Prueba/crear', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
     Route::post('/RegistroMuestra/Crear', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
+    Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
 });
+
+
 
 
 
