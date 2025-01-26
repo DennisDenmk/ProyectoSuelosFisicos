@@ -11,7 +11,11 @@
 </head>
 
 <body>
-    <x-navigation />
+    <nav>
+        <a href="{{ route('parcelas') }}" class="block w-full">
+            <button type="submit" class="btn btn-success">Volver</button>
+        </a>
+    </nav>
     <div class="container">
         <h2 class="mb-4">Registro de Muestras</h2>
 
