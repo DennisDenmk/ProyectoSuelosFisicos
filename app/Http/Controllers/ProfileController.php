@@ -26,6 +26,10 @@ class ProfileController extends Controller
     {
         return view('cliente.VistaCliente');
     }
+    public function showPerfilEstudiante()
+    {
+        return view('cliente.PerfilEstudiante');
+    }
 
 
     public function login(Request $request)

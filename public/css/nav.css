@@ -1,131 +1,104 @@
-/* Navbar */
-nav.bg-green-700 {
-    background-color: #2F855A; /* Verde 700 */
-    padding: 1rem;
+/*menu*/
+.menu {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(70deg, #14532D, #32B225, #14532D);
+    padding: 0px 20px;
 }
 
-nav.text-white {
-    color: white;
+.menuDes {
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
 }
 
-/* Contenedor principal */
-nav .max-w-7xl {
-    max-width: 90%;
-    margin: 0 auto;
+nav {
+    height: 100%;
+
 }
 
-nav .flex {
+nav>ul {
+    height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
-/* Logo */
-nav a.text-2xl {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-/* Enlaces del nav */
-nav .space-x-4 {
-    display: flex;
-    gap: 1rem;
-}
-
-nav .hover\:text-green-200:hover {
-    color: #B6F6B1; /* Verde 200 */
-}
-
-/* Dropdown */
-nav .relative {
+nav ul li {
+    height: 100%;
+    list-style: none;
     position: relative;
 }
 
-nav button.flex.items-center {
+nav>ul>li>a {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-/* Hover para el botón de dropdown */
-nav button.hover\:bg-green-600:hover {
-    background-color: #38A169; /* Verde 600 */
-}
-
-/* Icono del dropdown */
-nav svg.w-4.h-4 {
-    width: 1rem;
-    height: 1rem;
-}
-
-/* Menu desplegable */
-nav .absolute {
-    position: absolute;
-    display: none;
-    background-color: white;
-    color: #2F855A;
-    border-radius: 0.375rem;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 0.5rem;
-    width: 12rem;
-    right: 0;
-}
-
-nav .absolute.hidden {
-    display: none;
-}
-
-nav .absolute:not(.hidden) {
-    display: block;
-}
-
-/* Estilo de los botones en el dropdown */
-nav .btn {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    text-align: center;
-    background-color: #38A169; /* Verde 600 */
     color: white;
-    border-radius: 0.375rem;
-    margin-bottom: 0.5rem;
-    transition: background-color 0.3s;
+    padding: 14px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 300ms ease;
 }
 
-nav .btn:hover {
-    background-color: #2F855A; /* Verde 700 */
+nav ul li a:hover {
+    transform: scale(1.1);
+    background-color: #C3E956;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
 }
 
-/* Cambios para el botón de logout */
-nav form button.underline {
-    font-size: 0.875rem;
-    text-decoration: underline;
-    color: #4B5563; /* Gray 600 */
-    transition: color 0.3s;
+/*SubMenu*/
+nav ul li ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #14532D;
+    top: 90px;
+    left: -5px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: all 300ms ease;
+
 }
 
-nav form button.underline:hover {
-    color: #1F2937; /* Gray 900 */
+nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    top: 70px;
 }
 
-/* Estilo del botón de logout en dark mode */
-nav form button.dark\:text-gray-400 {
-    color: #D1D5DB; /* Gray 400 en dark mode */
+nav ul li ul:before {
+    color: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+    top: -12px;
+    left: 20px;
+
 }
 
-nav form button.dark\:hover\:text-gray-100:hover {
-    color: #F3F4F6; /* Gray 100 en dark mode */
+nav ul li ul li a {
+    display: block;
+    color: white;
+    padding: 6px;
+    padding-left: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
 }
 
-/* Asegurar que el texto en el boton de logout sea legible en dark mode */
-nav form button.dark\:focus\:ring-indigo-500 {
-    outline: 2px solid #6366F1; /* Indico color para el focus */
-}
-
-nav form button.focus\:outline-none:focus {
-    outline: none;
+nav ul li ul li a:hover {
+    background: #80B155;
+    color: #fff;
+    transform: scale(1.1);
+    padding-left: 10px;
+    font-size: 14px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }

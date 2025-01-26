@@ -18,12 +18,14 @@ class RegisterController extends Controller
     {
         try {
             // Datos para crear el usuario
+            //Usuario 3 Estudiante
+            //Usuario 4 Docente
             $data = [
-                'tipus_id' => 3, // ID de tipo válido
-                'user_cedula' => '1474178963',
-                'user_nombre' => 'Karlos',
-                'user_apellido' => 'Varela',
-                'user_email' => 'prueba@gmail.com',
+                'tipus_id' => 4, // ID de tipo válido
+                'user_cedula' => '1002628137',
+                'user_nombre' => 'Dennis',
+                'user_apellido' => 'Mejia',
+                'user_email' => 'dennisMejia@gmail.com',
                 'user_password' => Hash::make('admin123'),
                 'user_telefono' => '0987242576',
                 'user_estado' => true,
