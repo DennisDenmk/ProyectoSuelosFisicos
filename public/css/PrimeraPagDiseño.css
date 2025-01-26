@@ -7,43 +7,7 @@ body {
   height: 100vh;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(70deg, #14532D, #32B225, #14532D);
-  padding: 10px 0;
-}
 
-.navbar h1 {
-  margin: 0;
-  font-size: 2rem;
-  text-align: center;
-}
-
-.navbar nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0 0;
-}
-
-.navbar nav ul li {
-  margin: 0 15px;
-}
-
-.navbar nav ul li a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.navbar nav ul li a:hover {
-color: #C3E956;
-}
 
 /* Content */
 .content {

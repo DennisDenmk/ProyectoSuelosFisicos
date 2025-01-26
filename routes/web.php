@@ -10,15 +10,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('PrimerPag');
 });
-
+Route::get('/Informacion', function () {
+    return view('InfoSuelo');
+});
+Route::get('/Vision', function () {
+    return view('Vision');
+});
+Route::get('/Mision', function () {
+    return view('Mision');
+});
+Route::get('/Contactos', function () {
+    return view('Integrantes');
+});
 //login
 Route::get('login', [ProfileController::class, 'show'])->name('login');
 Route::post('login', [ProfileController::class, 'login']);
 
-Route::get('/Estudiante', [ProfileController::class, 'showEstudiante'])->name('verEstudiante');
+
 //ingreso a primera
 Route::get('/suelofisico', function () {
-    return view('SueloFisico'); // Asegúrate de tener una vista 'suelofisico.blade.php'
+    return view('SueloFisico'); 
 })->name('SueloFisico');
 
 Route::get('/dashboard', function () {
@@ -47,12 +58,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/RegistrarDatos/CrearMuestra', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
 
     Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
+    //Estudiante
+    Route::get('/ParcelasEstudiante', [Encargadosuelos::class, 'ParcelasEstudiante'])->name('parcelasestudiante'); 
+    Route::get('/MuestrasEstudiante', [VistaController::class, 'mostrarMuestrasEstudiente'])->name('muestrasestudiante');
+    Route::get('/Estudiante/Perfil', [ProfileController::class, 'showPerfilEstudiante'])->name('perfil.estudiante');  
+
 });
 
-
-
-
-
+Route::get('/Estudiante', [ProfileController::class, 'showEstudiante'])->name('verEstudiante');
 
 
 require __DIR__ . '/auth.php';
