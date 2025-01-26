@@ -39,15 +39,12 @@ class ProfileController extends Controller
             $tipoUsuario = $user->tipus_id;
 
             // Redirigir según el tipo de usuario
-            if ($tipoUsuario == 1) {
+            if ($tipoUsuario == 4) {
                 // Tipo 1: Redirigir a la página de inicio
                return redirect()->intended('/parcelas');
                
-            } elseif ($tipoUsuario == 2) {
+            } elseif ($tipoUsuario == 3) {
                 // Tipo 2: Redirigir a la página de dashboard
-                return redirect()->intended('/dashboard');
-            } else {
-                // Para otros tipos de usuario
                 return redirect()->intended('/dashboard');
             }
         }
