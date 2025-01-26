@@ -17,20 +17,6 @@ class Encargadosuelos extends Controller
     {
         return view('parcelas');
     }
-    public function FormularioMuestras()
-    {
-        $user = Auth::user();
-
-        // Verificar que el usuario esté autenticado
-        if (!$user) {
-            return redirect()->route('login')->with('error', 'Debe iniciar sesión para ver sus parcelas.');
-        }
-
-        // Obtener las parcelas del usuario autenticado
-        $parcelas = Parcela::where('user_id', $user->user_id)->get();
-        return view('formularioMuestras', compact('parcelas'));
-    }
-
 
     public function crear(Request $request)
     {

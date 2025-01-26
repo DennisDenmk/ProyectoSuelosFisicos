@@ -26,11 +26,7 @@
                         <button type="submit" class="btn btn-primary w-full">Ver Muestras</button>
                     </form>
 
-                <form action="{{ route('verformulario.muestras') }}" method="GET">
-                    <button type="submit" class="btn btn-primary w-full">Ingresar Muestra</button>
-                </form>
             </div>
-            <a href="{{ url('/parcelas') }}" class="hover:text-green-200">Parcelas</a>
             <a href="{{ url('/perfil') }}" class="hover:text-green-200">Perfil</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
