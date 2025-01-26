@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/RegistroSueloDiseño.css">
+
     <title>Registro de Muestras</title>
 
 </head>
@@ -15,7 +15,7 @@
         <a href="../HTML/SueloFisico.html" class="btnvol">Volver</a>
     </header>
     <x-parcelas-table :parcelas="$parcelas" :success="session('success')" :error="session('error')" />
-
+ 
     <!-- Panel Derecho -->
     <div class="container mt-5">
         <h2>Registro de Muestras</h2>
@@ -85,7 +85,47 @@
             <!-- Botón para enviar -->
             <button type="submit" class="btn btn-primary">Registrar Muestra</button>
         </form>
-    </div>
+        <div class="container mt-4">
+            <h2 class="mb-4">Registrar Parcela</h2>
+            <form action="{{ route('parcelas.create') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="tipos_id">Tipo de Suelo</label>
+                    <select name="tipos_id" id="tipos_id" class="form-control" required>
+                        <option value="" disabled selected>Selecciona un tipo de suelo</option>
+                        @foreach ($tiposSuelos as $tipo)
+                            <option value="{{ $tipo->tipos_id }}">{{ $tipo->tipos_nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="parc_nombre" class="form-label">Nombre de la Parcela</label>
+                    <input type="text" class="form-control" id="parc_nombre" name="parc_nombre" maxlength="50">
+                </div>
+                <div class="mb-3">
+                    <label for="parc_area" class="form-label">Área</label>
+                    <input type="number" step="0.01" class="form-control" id="parc_area" name="parc_area"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="parc_coord_la" class="form-label">Coordenada Latitude</label>
+                    <input type="number" step="0.000001" class="form-control" id="parc_coord_la"
+                        name="parc_coord_la" required>
+                </div>
+                <div class="mb-3">
+                    <label for="parc_coord_lo" class="form-label">Coordenada Longitude</label>
+                    <input type="number" step="0.000001" class="form-control" id="parc_coord_lo"
+                        name="parc_coord_lo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="parc_descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="parc_descripcion" name="parc_descripcion"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar Parcela</button>
+            </form>
+
+        </div>
+
 
 </body>
 

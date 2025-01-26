@@ -1,7 +1,6 @@
 <nav class="bg-green-700 text-white p-4">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <!-- Logo o nombre -->
-        <a href="#" class="text-2xl font-semibold">Suelo Lab</a>
+
 
         <!-- Opciones de navegación -->
         <div class="space-x-4 flex items-center">
@@ -15,14 +14,21 @@
                     </svg>
                 </button>
                 <!-- Dropdown menu -->
-                <div class="absolute hidden bg-white text-green-700 rounded shadow-lg mt-2 w-48 z-10 right-0">
+                
                     <form action="{{ route('muestras') }}" method="GET">
-                        <button type="submit" class="btn">Ir a Registro</button>
+                        <button type="submit" class="btn btn-primary w-full">Parcelas</button>
                     </form>
                     <form action="{{ route('verregistro') }}" method="GET">
-                        <button type="submit" class="btn">Ver Muestras</button>
+                        <button type="submit" class="btn btn-primary w-full">Ver Muestras</button>
                     </form>
-                </div>
+                    
+                    <form action="{{ route('muestras') }}" method="GET">
+                        <button type="submit" class="btn btn-primary w-full">Ver Muestras</button>
+                    </form>
+
+                <form action="{{ route('verformulario.muestras') }}" method="GET">
+                    <button type="submit" class="btn btn-primary w-full">Ingresar Muestra</button>
+                </form>
             </div>
             <a href="{{ url('/parcelas') }}" class="hover:text-green-200">Parcelas</a>
             <a href="{{ url('/perfil') }}" class="hover:text-green-200">Perfil</a>

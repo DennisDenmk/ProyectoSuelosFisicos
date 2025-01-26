@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Parcela;
 use App\Models\Muestra;
+use App\Models\TipoSuelo;
 
 class Encargadosuelos extends Controller
 {
@@ -15,22 +16,37 @@ class Encargadosuelos extends Controller
     {
         return view('parcelas');
     }
+    public function FormularioMuestras()
+    {
+        $user = Auth::user();
+
+        // Verificar que el usuario esté autenticado
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'Debe iniciar sesión para ver sus parcelas.');
+        }
+
+        // Obtener las parcelas del usuario autenticado
+        $parcelas = Parcela::where('user_id', $user->user_id)->get();
+        return view('formularioMuestras', compact('parcelas'));
+    }
+
 
     public function crear(Request $request)
     {
         try {
             $user = Auth::user();
-
+            
             // Validar los datos de entrada
             $validatedData = $request->validate([
-                'cons_id' => 'required|integer',
-                'tipos_id' => 'required|string|max:5',
+                'cons_id' => 1,
+                'tipos_id' => 'required|string',
                 'parc_nombre' => 'nullable|string|max:50',
                 'parc_area' => 'required|numeric',
                 'parc_coord_la' => 'required|numeric',
                 'parc_coord_lo' => 'required|numeric',
                 'parc_descripcion' => 'nullable|string',
             ]);
+            
 
             // Asignar el user_id del usuario autenticado
             $validatedData['user_id'] = $user->user_id;
@@ -60,12 +76,31 @@ class Encargadosuelos extends Controller
         // Obtener las parcelas del usuario autenticado
         $parcelas = Parcela::where('user_id', $user->user_id)->get();
 
-        // Retornar la vista con las parcelas
-        return view('RegistroSuelo', compact('parcelas'));
+        // Obtener los tipos de suelos
+        $tiposSuelos = TipoSuelo::all();  // Esto obtiene todos los registros de la tabla SM_F_TIPOSSUELOS
+
+        // Retornar la vista con las parcelas y los tipos de suelos
+        return view('RegistroSuelo', compact('tiposSuelos','parcelas'));
     }
+
     public function crearMuestras(Request $request)
     {
         try {
+            // Validar los datos para la muestra (parcela)
+            $validatedMuestra = $request->validate([
+                'parc_id' => 'required|numeric', // Validación para parc_id
+            ]);
+
+            // Verificar si la parcela pertenece al usuario autenticado
+            $usuarioId = Auth::user()->user_id;
+            $parcela = Parcela::where('parc_id', $validatedMuestra['parc_id'])
+                ->where('user_id', $usuarioId) // Asegúrate de tener un campo 'user_id' en la tabla 'Parcelas'
+                ->first();
+
+            if (!$parcela) {
+                return back()->withErrors(['error' => 'La parcela no está registrada o no pertenece al usuario.']);
+            }
+
             // Validar los datos para el detalle
             $validatedDetalle = $request->validate([
                 'estru_id' => 'required|string|max:5',
@@ -110,12 +145,6 @@ class Encargadosuelos extends Controller
                 'detal_porosidad' => $porosidad, // Asignar el valor numérico para porosidad
             ]);
 
-            // Validar los datos para la muestra
-            $validatedMuestra = $request->validate([
-                'parc_id' => 'required|numeric', // Validación solo para parc_id
-            ]);
-
-            // Crear la muestra relacionada con el detalle
             $muestra = MUESTRA::create([
                 'muest_id' => $detalle->detal_id, // Usar DETAL_ID como MUEST_ID
                 'parc_id' => $validatedMuestra['parc_id'], // Usar el parc_id recibido del formulario
@@ -124,7 +153,7 @@ class Encargadosuelos extends Controller
             ]);
 
             // Si todo fue correcto, devolver mensaje de éxito
-            return back()->with('success', 'Muestra Registrada con éxito');
+            return back()->with('success', 'Muestra registrada con éxito');
         } catch (\Exception $e) {
             // En caso de error, devolver el mensaje de error
             return back()->withErrors([

@@ -35,11 +35,16 @@ Route::get('/datos', [RegisterController::class, 'registerUser'])->name('registe
 
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/parcelas', [Encargadosuelos::class, 'create'])->name('parcelas');
-    Route::post('/parcelas/create', [Encargadosuelos::class, 'crear'])->name('parcelas.create');
-    Route::get('/RegistroMuestra/Prueba/crear', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
-    Route::post('/RegistroMuestra/Crear', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
+
+    Route::get('/RegistrosParcelas', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
+    Route::post('/RegistrosParcelas/Crear', [Encargadosuelos::class, 'crear'])->name('parcelas.create');
+
     Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
+    Route::get('/Formulario/Muestra', [Encargadosuelos::class, 'formularioMuestras'])->name('verformulario.muestras');
+    Route::post('/Formulario/Muestra/Crear', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
+    
 });
 
 
