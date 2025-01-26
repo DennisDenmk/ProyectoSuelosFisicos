@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Detalles;
+use App\Models\Estructura;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Parcela;
@@ -33,36 +34,35 @@ class Encargadosuelos extends Controller
 
     public function crear(Request $request)
     {
+        $validatedData = $request->validate([
+            'tipos_id' => 'required|string|max:5',
+            'parc_nombre' => 'nullable|string|max:50',
+            'parc_area' => 'required|numeric',
+            'parc_coord_la' => 'required|numeric',
+            'parc_coord_lo' => 'required|numeric',
+            'parc_descripcion' => 'nullable|string'
+        ]);
+
         try {
             $user = Auth::user();
-            
-            // Validar los datos de entrada
-            $validatedData = $request->validate([
+            $parcela = Parcela::create([
                 'cons_id' => 1,
-                'tipos_id' => 'required|string',
-                'parc_nombre' => 'nullable|string|max:50',
-                'parc_area' => 'required|numeric',
-                'parc_coord_la' => 'required|numeric',
-                'parc_coord_lo' => 'required|numeric',
-                'parc_descripcion' => 'nullable|string',
+                'tipos_id' => $validatedData['tipos_id'],
+                'user_id' => $user->user_id,
+                'parc_nombre' => $validatedData['parc_nombre'] ?? null,
+                'parc_area' => $validatedData['parc_area'],
+                'parc_coord_la' => $validatedData['parc_coord_la'],
+                'parc_coord_lo' => $validatedData['parc_coord_lo'],
+                'parc_descripcion' => $validatedData['parc_descripcion'] ?? null
             ]);
-            
 
-            // Asignar el user_id del usuario autenticado
-            $validatedData['user_id'] = $user->user_id;
-
-            // Crear la parcela
-            $parcela = Parcela::create($validatedData);
-
-            // Si se crea correctamente, enviar mensaje de éxito
-            return back()->with('success', 'Parcela creada con éxito.');
+            return back()->with('success', 'Parcela creada exitosamente');
         } catch (\Exception $e) {
-            // En caso de error, enviar mensaje de error
-            return back()->withErrors([
-                'error' => 'Ocurrió un error al crear la parcela: ' . $e->getMessage(),
-            ]);
+            return back()->withErrors(['error' => 'Error al crear parcela: ' . $e->getMessage()]);
         }
     }
+
+
     public function misParcelas()
     {
         // Obtener el usuario autenticado
@@ -78,9 +78,9 @@ class Encargadosuelos extends Controller
 
         // Obtener los tipos de suelos
         $tiposSuelos = TipoSuelo::all();  // Esto obtiene todos los registros de la tabla SM_F_TIPOSSUELOS
-
+        $estructura = Estructura::all();
         // Retornar la vista con las parcelas y los tipos de suelos
-        return view('RegistroSuelo', compact('tiposSuelos','parcelas'));
+        return view('RegistroSuelo', compact('tiposSuelos', 'parcelas', 'estructura'));
     }
 
     public function crearMuestras(Request $request)

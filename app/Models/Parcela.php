@@ -14,6 +14,7 @@ class Parcela extends Model
 
     // Llave primaria de la tabla
     protected $primaryKey = 'parc_id';
+    protected $keyType = 'int';
 
     // Deshabilitar timestamps automáticos si no los estás utilizando
     public $timestamps = false;

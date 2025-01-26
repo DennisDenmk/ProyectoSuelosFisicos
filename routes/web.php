@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/parcelas', [Encargadosuelos::class, 'create'])->name('parcelas');
 
     Route::get('/RegistrosParcelas', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
-    Route::post('/RegistrosParcelas/Crear', [Encargadosuelos::class, 'crear'])->name('parcelas.create');
+    Route::post('/RegistrosParcelas/Crear', [Encargadosuelos::class, 'crear'])->name('parcelas.crear');
 
     Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
     Route::get('/Formulario/Muestra', [Encargadosuelos::class, 'formularioMuestras'])->name('verformulario.muestras');

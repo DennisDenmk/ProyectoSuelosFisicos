@@ -15,7 +15,7 @@
         <a href="../HTML/SueloFisico.html" class="btnvol">Volver</a>
     </header>
     <x-parcelas-table :parcelas="$parcelas" :success="session('success')" :error="session('error')" />
- 
+
     <!-- Panel Derecho -->
     <div class="container mt-5">
         <h2>Registro de Muestras</h2>
@@ -43,11 +43,13 @@
                 <label for="parc_id" class="form-label">Parcela ID</label>
                 <input type="number" class="form-control" id="parc_id" name="parc_id" required>
             </div>
-            <!-- Estru ID -->
-            <div class="mb-3">
-                <label for="estru_id" class="form-label">Estructura ID</label>
-                <input type="text" class="form-control" id="estru_id" name="estru_id" maxlength="5" required>
-            </div>
+            <label for="estru_id">Tipo de Suelo</label>
+            <select name="estru_id" id="estru_id" class="form-control" required>
+                <option value="" disabled selected>Selecciona un tipo de suelo</option>
+                @foreach ($estructura as $estru)
+                    <option value="{{ $estru->estru_id }}">{{ $estru->estru_descripcion }}</option>
+                @endforeach
+            </select>
             <!-- Detal Arena -->
             <div class="mb-3">
                 <label for="detal_arena" class="form-label">Porcentaje de Arena</label>
@@ -87,41 +89,44 @@
         </form>
         <div class="container mt-4">
             <h2 class="mb-4">Registrar Parcela</h2>
-            <form action="{{ route('parcelas.create') }}" method="POST">
+            <form action="{{ route('parcelas.crear') }}" method="POST">
                 @csrf
-                <div class="form-group">
-                    <label for="tipos_id">Tipo de Suelo</label>
-                    <select name="tipos_id" id="tipos_id" class="form-control" required>
+                <div>
+                    <label>Tipo de Suelo</label>
+                    <select name="tipos_id" required>
                         <option value="" disabled selected>Selecciona un tipo de suelo</option>
                         @foreach ($tiposSuelos as $tipo)
                             <option value="{{ $tipo->tipos_id }}">{{ $tipo->tipos_nombre }}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label for="parc_nombre" class="form-label">Nombre de la Parcela</label>
-                    <input type="text" class="form-control" id="parc_nombre" name="parc_nombre" maxlength="50">
+
+                <div>
+                    <label>Nombre Parcela</label>
+                    <input type="text" name="parc_nombre" maxlength="50">
                 </div>
-                <div class="mb-3">
-                    <label for="parc_area" class="form-label">Área</label>
-                    <input type="number" step="0.01" class="form-control" id="parc_area" name="parc_area"
-                        required>
+
+                <div>
+                    <label>Área</label>
+                    <input type="number" name="parc_area" step="0.01" required>
                 </div>
-                <div class="mb-3">
-                    <label for="parc_coord_la" class="form-label">Coordenada Latitude</label>
-                    <input type="number" step="0.000001" class="form-control" id="parc_coord_la"
-                        name="parc_coord_la" required>
+
+                <div>
+                    <label>Coordenada Latitud</label>
+                    <input type="number" name="parc_coord_la" step="0.000001" required>
                 </div>
-                <div class="mb-3">
-                    <label for="parc_coord_lo" class="form-label">Coordenada Longitude</label>
-                    <input type="number" step="0.000001" class="form-control" id="parc_coord_lo"
-                        name="parc_coord_lo" required>
+
+                <div>
+                    <label>Coordenada Longitud</label>
+                    <input type="number" name="parc_coord_lo" step="0.000001" required>
                 </div>
-                <div class="mb-3">
-                    <label for="parc_descripcion" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="parc_descripcion" name="parc_descripcion"></textarea>
+
+                <div>
+                    <label>Descripción</label>
+                    <textarea name="parc_descripcion"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Guardar Parcela</button>
+
+                <button type="submit">Crear Parcela</button>
             </form>
 
         </div>
