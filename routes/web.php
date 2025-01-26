@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Encargadosuelos;
@@ -38,13 +39,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/parcelas', [Encargadosuelos::class, 'create'])->name('parcelas');
 
-    Route::get('/RegistrosParcelas', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
-    Route::post('/RegistrosParcelas/Crear', [Encargadosuelos::class, 'crear'])->name('parcelas.crear');
-
-    Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
-    Route::get('/Formulario/Muestra', [Encargadosuelos::class, 'formularioMuestras'])->name('verformulario.muestras');
-    Route::post('/Formulario/Muestra/Crear', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
+    Route::get('/RegistrarDatos', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
+    Route::post('/RegistrarDatos/CrearParcela', [Encargadosuelos::class, 'crear'])->name('parcelas.crear');
+    Route::post('/RegistrarDatos/CrearMuestra', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
     
+    Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
 });
 
 
@@ -53,4 +52,4 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
