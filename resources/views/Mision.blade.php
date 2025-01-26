@@ -12,7 +12,7 @@
 
     <header class="header">
         <h2>Mision</h2>
-        <a href="{{route('suelofisico')}}" class="btnvol">Volver</a>
+        <a href="{{asset('/')}}" class="btnvol">Volver</a>
     </header>
 
 

@@ -4,11 +4,7 @@
             <ul>
                 <li><a href="#">Menu</a>
                     <ul>
-                        <form action="{{ url('login') }}" method="POST" style="display: inline;">
-                            @csrf
-                            <button type="submit" class="btn btn-danger">Iniciar Sesion</button>
-                        </form>
-                      
+                        <li><a href="{{url('login')}}">Iniciar Sesion</a></li>
                         <li><a href="#">Quimico</a></li>
                         <li><a href="#">Biológico</a></li>
                     </ul>

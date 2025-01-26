@@ -1,54 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Parcelas</title>
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEJv3p9Fjk9a5a1km3sfxTgG1QfbbV54SZQZnauKz6M4r9zSg9T/3uxhPL2M9" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
-        
-
+    <title>Opciones Docente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <x-navigation />
-   
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="text-center bg-white p-10 rounded-2xl shadow-lg">
+        <h1 class="text-2xl font-bold mb-6">¿Qué deseas hacer?</h1>
 
-        @if (session('success'))
-            <div class="alert alert-success mt-4">
-                {{ session('success') }}
-            </div>
-        @endif
+        <div class="space-y-4">
+            <a href="{{ route('perfil') }}" class="block w-full">
+                <button class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                    Perfil
+                </button>
+            </a>
+            <a href="{{ route('muestras') }}" class="block w-full">
+                <button class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                    Registrar Datos
+                </button>
+            </a>
+            <a href="{{ route('parcelasestudiante') }}" class="block w-full">
+                <button class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                    Ver Parcelas
+                </button>
+            </a>
 
-        @if ($errors->any())
-            <div class="alert alert-danger mt-4">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+            <a href="{{ route('muestrasestudiante') }}" class="block w-full">
+                <button class="w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                    Ver Muestras
+                </button>
+            </a>
+
+            <form action="{{route('logout')}}" method="POST" block w-full">
+                @csrf
+                <button class="w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                    Cerrar Sesion
+                </button>
+            </form>
+
+        </div>
     </div>
-
-    <!-- Agregar el script de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-KyZXEJv3p9Fjk9a5a1km3sfxTgG1QfbbV54SZQZnauKz6M4r9zSg9T/3uxhPL2M9" crossorigin="anonymous">
-    </script>
-    <script>
-        document.addEventListener('click', function(event) {
-            const dropdownButton = document.querySelector('button[aria-haspopup="true"]');
-            const dropdownMenu = dropdownButton.nextElementSibling;
-
-            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.add('hidden');
-            }
-        });
-    </script>
-
 </body>
 
 </html>
