@@ -29,4 +29,12 @@ class Parcela extends Model
         'parc_coord_lo',
         'parc_descripcion',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    public function tipoSuelo()
+    {
+        return $this->belongsTo(tipoSuelo::class, 'tipos_id', 'tipos_id');
+    }
 }
