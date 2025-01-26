@@ -15,6 +15,7 @@ Route::get('/', function () {
 Route::get('login', [ProfileController::class, 'show'])->name('login');
 Route::post('login', [ProfileController::class, 'login']);
 
+Route::get('/Estudiante', [ProfileController::class, 'showEstudiante'])->name('verEstudiante');
 //ingreso a primera
 Route::get('/suelofisico', function () {
     return view('SueloFisico'); // Asegúrate de tener una vista 'suelofisico.blade.php'
@@ -36,13 +37,15 @@ Route::get('/datos', [RegisterController::class, 'registerUser'])->name('registe
 
 
 Route::middleware(['auth'])->group(function () {
-
+    Route::get('/Perfil', [ProfileController::class, 'showPerfil'])->name('perfil');
+    Route::post('/Perfil/ActualizarDatos', [ProfileController::class, 'actualizarNombres'])->name('perfil.actualizarnombre');
+    Route::post('/Perfil/Actualizar', [ProfileController::class, 'cambiarContrasena'])->name('perfil.actualizarContrasena');
     Route::get('/parcelas', [Encargadosuelos::class, 'create'])->name('parcelas');
 
     Route::get('/RegistrarDatos', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
     Route::post('/RegistrarDatos/CrearParcela', [Encargadosuelos::class, 'crear'])->name('parcelas.crear');
     Route::post('/RegistrarDatos/CrearMuestra', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
-    
+
     Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
 });
 

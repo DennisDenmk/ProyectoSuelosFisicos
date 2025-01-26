@@ -25,6 +25,9 @@
                     <form action="{{ route('muestras') }}" method="GET">
                         <button type="submit" class="btn btn-primary w-full">Ver Muestras</button>
                     </form>
+                    <form action="{{ route('perfil') }}" method="GET">
+                        <button type="submit" class="btn btn-primary w-full">Ver Perfil</button>
+                    </form>
 
             </div>
             <a href="{{ url('/perfil') }}" class="hover:text-green-200">Perfil</a>

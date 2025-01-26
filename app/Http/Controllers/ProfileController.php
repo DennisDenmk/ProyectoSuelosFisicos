@@ -18,7 +18,15 @@ class ProfileController extends Controller
     {
         return view('auth.login');
     }
-   
+    public function showPerfil()
+    {
+        return view('Perfil');
+    }
+    public function showEstudiante()
+    {
+        return view('cliente.VistaCliente');
+    }
+
 
     public function login(Request $request)
     {
@@ -41,11 +49,10 @@ class ProfileController extends Controller
             // Redirigir según el tipo de usuario
             if ($tipoUsuario == 4) {
                 // Tipo 1: Redirigir a la página de inicio
-               return redirect()->intended('/parcelas');
-               
+                return redirect()->intended('/parcelas');
             } elseif ($tipoUsuario == 3) {
                 // Tipo 2: Redirigir a la página de dashboard
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('/Estudiante');
             }
         }
 
@@ -55,6 +62,58 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function actualizarNombres(Request $request)
+    {
+        try {
+            // Validar los datos de entrada
+            $validatedData = $request->validate([
+                'user_nombre' => 'required|string|max:50',
+                'user_apellido' => 'required|string|max:50',
+            ]);
+
+
+            $usuario = Auth::user();
+
+            // Actualizar los campos permitidos
+            $usuario->user_nombre = $validatedData['user_nombre'];
+            $usuario->user_apellido = $validatedData['user_apellido'];
+
+            // Guardar los cambios
+            $usuario->save();
+
+            // Redirigir con un mensaje de éxito
+            return back()->with('success', 'Usuario actualizado con éxito.');
+        } catch (\Exception $e) {
+            // Manejar errores y redirigir con un mensaje de error
+            return back()->withErrors([
+                'error' => 'Ocurrió un error al actualizar los datos del usuario: ' . $e->getMessage(),
+            ]);
+        }
+    }
+    public function cambiarContrasena(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        // Verificar contraseña actual
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'La contraseña actual no es correcta']);
+        }
+
+        // Actualizar contraseña
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return back()->with('success', 'Contraseña actualizada exitosamente');
+    }
+
+
+
+
 
 
     public function edit(Request $request): View
@@ -63,6 +122,7 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
+
 
     /**
      * Update the user's profile information.
