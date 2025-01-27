@@ -53,7 +53,7 @@ class ProfileController extends Controller
             // Redirigir según el tipo de usuario
             if ($tipoUsuario == 4) {
                 // Tipo 1: Redirigir a la página de inicio
-                return redirect()->intended('/parcelas');
+                return redirect()->intended('/Docente');
             } elseif ($tipoUsuario == 3) {
                 // Tipo 2: Redirigir a la página de dashboard
                 return redirect()->intended('/Estudiante');
@@ -76,14 +76,14 @@ class ProfileController extends Controller
             ]);
 
 
-            $usuario = Auth::user();
+            $user = Auth::user();
 
             // Actualizar los campos permitidos
-            $usuario->user_nombre = $validatedData['user_nombre'];
-            $usuario->user_apellido = $validatedData['user_apellido'];
+            $user->user_nombre = $validatedData['user_nombre'];
+            $user->user_apellido = $validatedData['user_apellido'];
 
             // Guardar los cambios
-            $usuario->save();
+            $user()->save();
 
             // Redirigir con un mensaje de éxito
             return back()->with('success', 'Usuario actualizado con éxito.');
@@ -110,7 +110,7 @@ class ProfileController extends Controller
 
         // Actualizar contraseña
         $user->password = Hash::make($request->new_password);
-        $user->save();
+        $user()->save();
 
         return back()->with('success', 'Contraseña actualizada exitosamente');
     }
