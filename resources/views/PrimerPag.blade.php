@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soil Management</title>
-    <link rel="stylesheet" href="{{ asset('css/PrimeraPagDiseño.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/PrimeraPagDiseno.css')}}">
     <link rel="stylesheet" href="{{ asset('css/nav.css')}}">
 </head>
 

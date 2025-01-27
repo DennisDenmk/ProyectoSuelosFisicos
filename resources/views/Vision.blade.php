@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vision Suelo Fisico</title>
-    <link rel="stylesheet" href="../CSS/VisionDiseño.css">
+    <link rel="stylesheet" href="{{asset('css/VisionDiseno.css')}}">
 </head>
 
 <body>
