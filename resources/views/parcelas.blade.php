@@ -23,7 +23,7 @@
                     Registrar Datos
                 </button>
             </a>
-            <a href="{{ route('parcelasestudiante') }}" class="block w-full">
+            <a href="{{ route('parcelas.docente') }}" class="block w-full">
                 <button class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
                     Ver Parcelas
                 </button>

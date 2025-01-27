@@ -45,12 +45,15 @@ Route::middleware('auth')->group(function () {
 
 //DAtos prueba
 Route::get('/datos', [RegisterController::class, 'registerUser'])->name('registerUser');
-
+//Docentes
+Route::get('/ParcelasDocente', [Encargadosuelos::class, 'ParcelasDocente'])->name('parcelas.docente');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/Perfil', [ProfileController::class, 'showPerfil'])->name('perfil');
     Route::post('/Perfil/ActualizarDatos', [ProfileController::class, 'actualizarNombres'])->name('perfil.actualizarnombre');
     Route::post('/Perfil/Actualizar', [ProfileController::class, 'cambiarContrasena'])->name('perfil.actualizarContrasena');
+    
+    //Docente
     Route::get('/Docente', [Encargadosuelos::class, 'create'])->name('parcelas');
 
     Route::get('/RegistrarDatos', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
@@ -58,8 +61,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/RegistrarDatos/CrearMuestra', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
 
     Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
+    Route::get('/ParcelasDocente',[VistaController::class, 'mostrarParcelasDocente'])->name('parcelas.docente');
     //Estudiante
-    Route::get('/ParcelasEstudiante', [Encargadosuelos::class, 'ParcelasEstudiante'])->name('parcelasestudiante'); 
+    Route::get('/ParcelasEstudiante', [Encargadosuelos::class, 'ParcelasEstudiante'])->name('parcelasestudiante');
     Route::get('/MuestrasEstudiante', [VistaController::class, 'mostrarMuestrasEstudiente'])->name('muestrasestudiante');
     Route::get('/Estudiante/Perfil', [ProfileController::class, 'showPerfilEstudiante'])->name('perfil.estudiante');
 
