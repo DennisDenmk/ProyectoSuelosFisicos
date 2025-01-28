@@ -22,6 +22,19 @@ Route::get('/Mision', function () {
 Route::get('/Contactos', function () {
     return view('Integrantes');
 });
+//Recuperar contraseña
+Route::get('/Olvidaste-tu-contrasena', function() {
+    return view('recuperarcontrasena');
+});
+// Verificar usuario y redirigir al formulario de cambio de contraseña
+Route::post('/password-recovery', [VistaController::class, 'verifyUser'])->name('password.verify');
+
+// Mostrar formulario para cambiar la contraseña
+Route::get('/password-change/{id}', [VistaController::class, 'showChangePasswordForm'])->name('password.change');
+
+// Actualizar la contraseña
+Route::post('/password-change/{id}', [VistaController::class, 'updatePassword'])->name('password.update');
+
 //login
 Route::get('login', [ProfileController::class, 'show'])->name('login');
 Route::post('login', [ProfileController::class, 'login']);
