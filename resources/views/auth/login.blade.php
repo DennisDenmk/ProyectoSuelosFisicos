@@ -26,6 +26,7 @@
         <x-input-error :messages="$errors->get('user_cedula')" class="mt-2 text-red-600" />
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
       </form>
+      <a href="{{url('/Olvidaste-tu-contrasena')}}">Propiedades Suelo</a>
       
     </div>
   </div>
