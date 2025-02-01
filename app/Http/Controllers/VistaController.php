@@ -69,7 +69,7 @@ class VistaController extends Controller
         $muestras = Muestra::with('detalles')->get();
 
         // Retornar a la vista y pasar las muestras con los detalles y su textura
-        return view('Registros', compact('muestras'));
+        return view('docente.MuestraDocente', compact('muestras'));
     }
     public function mostrarMuestrasEstudiente()
     {
