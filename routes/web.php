@@ -22,6 +22,19 @@ Route::get('/Mision', function () {
 Route::get('/Contactos', function () {
     return view('Integrantes');
 });
+//Recuperar contraseña
+Route::get('/Olvidaste-tu-contrasena', function() {
+    return view('recuperarcontrasena');
+});
+// Verificar usuario y redirigir al formulario de cambio de contraseña
+Route::post('/password-recovery', [VistaController::class, 'verifyUser'])->name('password.verify');
+
+// Mostrar formulario para cambiar la contraseña
+Route::get('/password-change/{id}', [VistaController::class, 'showChangePasswordForm'])->name('password.change');
+
+// Actualizar la contraseña
+Route::post('/password-change/{id}', [VistaController::class, 'updatePassword'])->name('password.update');
+
 //login
 Route::get('login', [ProfileController::class, 'show'])->name('login');
 Route::post('login', [ProfileController::class, 'login']);
@@ -45,23 +58,28 @@ Route::middleware('auth')->group(function () {
 
 //DAtos prueba
 Route::get('/datos', [RegisterController::class, 'registerUser'])->name('registerUser');
-
+//Docentes
+Route::get('/ParcelasDocente', [Encargadosuelos::class, 'ParcelasDocente'])->name('parcelas.docente');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/Perfil', [ProfileController::class, 'showPerfil'])->name('perfil');
     Route::post('/Perfil/ActualizarDatos', [ProfileController::class, 'actualizarNombres'])->name('perfil.actualizarnombre');
     Route::post('/Perfil/Actualizar', [ProfileController::class, 'cambiarContrasena'])->name('perfil.actualizarContrasena');
-    Route::get('/parcelas', [Encargadosuelos::class, 'create'])->name('parcelas');
+    
+    //Docente
+    Route::get('/Docente', [Encargadosuelos::class, 'create'])->name('parcelas');
 
     Route::get('/RegistrarDatos', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
     Route::post('/RegistrarDatos/CrearParcela', [Encargadosuelos::class, 'crear'])->name('parcelas.crear');
     Route::post('/RegistrarDatos/CrearMuestra', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
 
     Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
+    Route::get('/ParcelasDocente',[VistaController::class, 'mostrarParcelasDocente'])->name('parcelas.docente');
     //Estudiante
-    Route::get('/ParcelasEstudiante', [Encargadosuelos::class, 'ParcelasEstudiante'])->name('parcelasestudiante'); 
+    Route::get('/ParcelasEstudiante', [Encargadosuelos::class, 'ParcelasEstudiante'])->name('parcelasestudiante');
     Route::get('/MuestrasEstudiante', [VistaController::class, 'mostrarMuestrasEstudiente'])->name('muestrasestudiante');
-    Route::get('/Estudiante/Perfil', [ProfileController::class, 'showPerfilEstudiante'])->name('perfil.estudiante');  
+    Route::get('/Estudiante/Perfil', [ProfileController::class, 'showPerfilEstudiante'])->name('perfil.estudiante');
+
 
 });
 

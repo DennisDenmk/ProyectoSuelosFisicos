@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soil Management</title>
-  <link rel="stylesheet" href="{{ asset('css/LoginDiseño.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/LoginDiseno.css')}}">
 </head>
 <body>
   <header class="header">
@@ -26,6 +26,7 @@
         <x-input-error :messages="$errors->get('user_cedula')" class="mt-2 text-red-600" />
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
       </form>
+      <a href="{{url('/Olvidaste-tu-contrasena')}}">Propiedades Suelo</a>
       
     </div>
   </div>

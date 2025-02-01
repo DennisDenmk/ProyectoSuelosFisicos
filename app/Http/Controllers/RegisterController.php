@@ -22,7 +22,7 @@ class RegisterController extends Controller
             //Usuario 4 Docente
             $data = [
                 'tipus_id' => 4, // ID de tipo válido
-                'user_cedula' => '1002628137',
+                'user_cedula' => '1723705735',
                 'user_nombre' => 'Dennis',
                 'user_apellido' => 'Mejia',
                 'user_email' => 'dennisMejia@gmail.com',

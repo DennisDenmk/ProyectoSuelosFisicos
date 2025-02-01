@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informacion Suelo</title>
     
-    <link rel="stylesheet" href="{{ asset('css/InfoSueloDiseño.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/InfoSueloDiseno.css') }}">
 </head>
 
 <body>
 
     <header class="header">
         <h2>Informacion Suelo</h2>
-        <a href="../HTML/SueloFisico.html" class="btnvol">Volver</a>
+        <a href="{{asset('/')}}" class="btnvol">Volver</a>
     </header>
 
     <div class="container">
