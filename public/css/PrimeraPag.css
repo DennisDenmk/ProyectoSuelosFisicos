@@ -1,0 +1,210 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #EBF3D4;
+  color: #333; /* Cambiado a un color más oscuro para mejor contraste */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Centrar el título y la barra de búsqueda */
+.titulo {
+  text-align: center;
+  margin-bottom: 10px;
+  color: white; /* Asegura que el título sea visible sobre el fondo */
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  background: #688828;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Superior {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  background: #688828;
+  padding: 10px;
+}
+
+/* Menu */
+.menu {
+  width: 100%;
+  height: 50px;
+  background: #688828;
+  padding: 0px 20px;
+}
+
+.menuDes {
+  max-width: 1200px;
+  margin: auto;
+  height: 100%;
+}
+
+nav {
+  height: 100%;
+}
+
+nav>ul {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  height: 100%;
+  list-style: none;
+  position: relative;
+}
+
+nav>ul>li>a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 14px;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: all 300ms ease;
+}
+
+nav ul li a:hover {
+  background-color: #506823;
+}
+
+/* SubMenu */
+nav ul li ul {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #86AB37;
+  top: 90px;
+  left: -5px;
+  padding: 14px 0px;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  transition: all 300ms ease;
+}
+
+nav ul li:hover ul {
+  visibility: visible;
+  opacity: 1;
+  top: 70px;
+}
+
+nav ul li ul:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid white;
+  top: -12px;
+  left: 20px;
+}
+
+nav ul li ul li a {
+  display: block;
+  color: white;
+  padding: 6px;
+  padding-left: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: all 300ms ease;
+}
+
+nav ul li ul li a:hover {
+  background: #506823;
+  color: #fff;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 600px;
+  border-radius: 10px;
+  background: #F6FAEB;
+}
+
+.main-image {
+  max-width: 66%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.text {
+  max-width: 100%;
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  background-color: #EBF3D4;
+  border-radius: 10px;
+  color: #506823;
+  padding: 15px; /* Aumentado el padding para mejor legibilidad */
+}
+
+/* Footer */
+footer {
+  background-color: #688828;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Asegura que el footer se quede abajo */
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.contacts,
+.emails {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+.contacts p,
+.emails p {
+  margin: 5px 0;
+  font-size: 0.9rem; /* Tamaño de fuente ajustado */
+}
+
+.emails p {
+  color: #EBF3D4; /* Color más claro para los correos */
+}

@@ -4,41 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opciones Estudiante</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Suelo Físico</title>
+    <link rel="stylesheet" href="{{ asset('css/SesionUsuario.css') }}">
 </head>
 
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="text-center bg-white p-10 rounded-2xl shadow-lg">
-        <h1 class="text-2xl font-bold mb-6">¿Qué deseas hacer?</h1>
+<body>
 
-        <div class="space-y-4">
-            <a href="{{ route('perfil.estudiante') }}" class="block w-full">
-                <button class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-                    Perfil
-                </button>
-            </a>
-            <a href="{{ route('parcelasestudiante') }}" class="block w-full">
-                <button class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-                    Ver Parcelas
-                </button>
-            </a>
+    <header>
+        <h1>Suelo Físico</h1>
+    </header>
 
-            <a href="{{ route('muestrasestudiante') }}" class="block w-full">
-                <button class="w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-                    Ver Muestras
-                </button>
-            </a>
-
-            <form action="{{route('logout')}}" method="POST" block w-full">
-                @csrf
-                <button class="w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-                    Cerrar Sesion
-                </button>
-            </form>
-
+    <main>
+        <div class="card-container">
+            <div class="card">
+                <img src="{{ asset('images/User.png') }}" alt="Perfil">
+                <a href="{{ url('/Estudiante/Perfil') }}" class="btn">Ver Perfil</a>
+            </div>
+            <div class="card">
+                <img src="{{ asset('images/Plots.png') }}" alt="Parcelas">
+                <a href="{{ url('/ParcelasEstudiante') }}" class="btn">Ver Parcelas</a>
+            </div>
+            <div class="card">
+                <img src="{{ asset('images/World.png') }}" alt="Muestras">
+                <a href="{{ url('/MuestrasEstudiante') }}" class="btn">Ver Muestras</a>
+            </div>
+            <div class="card">
+                <img src="{{ asset('images/out.png') }}" alt="Salir">
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <button class="btn">Salir</button>
+                </form>
+            </div>
         </div>
-    </div>
-</body>
+    </main>
 
+</body>
 </html>
