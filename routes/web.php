@@ -73,7 +73,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/RegistrarDatos/CrearParcela', [Encargadosuelos::class, 'crear'])->name('parcelas.crear');
     Route::post('/RegistrarDatos/CrearMuestra', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
 
-    Route::get('/TusMuestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
+    Route::get('/Docente/Muestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
     Route::get('/ParcelasDocente',[VistaController::class, 'mostrarParcelasDocente'])->name('parcelas.docente');
     //Estudiante
     Route::get('/ParcelasEstudiante', [Encargadosuelos::class, 'ParcelasEstudiante'])->name('parcelasestudiante');

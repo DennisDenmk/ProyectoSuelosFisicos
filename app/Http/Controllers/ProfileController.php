@@ -20,7 +20,7 @@ class ProfileController extends Controller
     }
     public function showPerfil()
     {
-        return view('Perfil');
+        return view('docente.PerfilDocente');
     }
     public function showEstudiante()
     {
