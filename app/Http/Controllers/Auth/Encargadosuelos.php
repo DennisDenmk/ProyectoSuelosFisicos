@@ -15,7 +15,7 @@ class Encargadosuelos extends Controller
 {
     public function create()
     {
-        return view('parcelas');
+        return view('docente.SesionInvestigador');
     }
 
     public function crear(Request $request)

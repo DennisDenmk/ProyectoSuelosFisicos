@@ -10,12 +10,15 @@
   <header class="header">
       <div class="menu container">
         <h2>SOUL MANAGMENT</h2>
+        <a href="{{asset('/')}}" class="btnvol">Volver</a>
+
       </div>
   </header>
   <div class="container">
     <div class="login-box">
       <img src="{{asset('images/Reciclaje.jpg')}}" alt="Recycling illustration" class="image">
       <h2>Iniciar Sesión</h2>
+      
       <form action="{{ route('login') }}" method="POST">
         @csrf
         <label for="email">Cédula:</label>
@@ -26,7 +29,7 @@
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
         <x-input-error :messages="$errors->get('user_cedula')" style="color: #dc2626; font-size: 14px; margin-top: 8px;margin-right:10%" />
       </form>
-      <a href="{{url('/Olvidaste-tu-contrasena')}}">Olvidaste-tu-contrasena?</a>
+      <a href="{{url('/Olvidaste-tu-contrasena')}}" style="text-decoration: none;">¿Olvidaste tu contraseña?</a>
     </div>
   </div>
 </body>

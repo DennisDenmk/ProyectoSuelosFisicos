@@ -15,7 +15,7 @@ class Encargadosuelos extends Controller
 {
     public function create()
     {
-        return view('parcelas');
+        return view('docente.SesionInvestigador');
     }
 
     public function crear(Request $request)
@@ -84,7 +84,7 @@ class Encargadosuelos extends Controller
         $tiposSuelos = TipoSuelo::all();  // Esto obtiene todos los registros de la tabla SM_F_TIPOSSUELOS
         $estructura = Estructura::all();
         // Retornar la vista con las parcelas y los tipos de suelos
-        return view('RegistroSuelo', compact('tiposSuelos', 'parcelas', 'estructura'));
+        return view('docente.RegistrarParcelas', compact('tiposSuelos', 'parcelas', 'estructura'));
     }
 
     public function crearMuestras(Request $request)
