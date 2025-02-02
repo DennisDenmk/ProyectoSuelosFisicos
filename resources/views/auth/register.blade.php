@@ -46,7 +46,7 @@
                     <form>
                         <select name="Parcelas" id="tipus_id" class="Parcelas" placeholder="Usuario">
                             <option value="3">Estudiante</option>
-                            <option value="4">Investigador</option>
+                            <option value="4">Docente</option>
                         </select>
                     </form>
                 </div>
@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <label>Cedula:</label>
                     <br>
-                    <input type="text" id="user_cedula" placeholder="Ingrese su Cedula" maxlength="10" required>
+                    <input type="text" id="user_cedula" placeholder="Ingrese su Cedula" maxlength="10" min="10" required>
                 </div>
 
                 <div class="form-group">
@@ -78,19 +78,19 @@
                 <div class="form-group">
                     <label>Contraseña:</label>
                     <br>
-                    <input type="password" id="user_password"placeholder="Ingrese su correo" required>
+                    <input type="password" id="user_password"placeholder="" minlength="8" required>
                 </div>
 
                 <div class="form-group">
                     <label>Confirmar contraseña:</label>
                     <br>
-                    <input type="password" name="user_password_confirmation" placeholder="Ingrese su correo" required>
+                    <input type="password" name="user_password_confirmation" minlength="8" required>
                 </div>
 
                 <div class="form-group">
                     <label>Telefono:</label>
                     <br>
-                    <input type="text" id="user_telefono" placeholder="Ingrese su correo" required>
+                    <input type="text" id="user_telefono" placeholder="" minlength="10" maxlength="10" required>
                 </div>
 
                 <button type="submit" class="btn">Registrarse</button>
