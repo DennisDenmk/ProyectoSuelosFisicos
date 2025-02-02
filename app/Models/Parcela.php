@@ -38,4 +38,8 @@ class Parcela extends Model
     {
         return $this->belongsTo(tipoSuelo::class, 'tipos_id', 'tipos_id');
     }
+    public function muestras()
+    {
+        return $this->hasMany(Muestra::class, 'parc_id', 'parc_id');
+    }
 }
