@@ -38,20 +38,6 @@ class User extends Authenticatable
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
-    // Método para hashear la contraseña antes de guardar
-    public static function createUser($data)
-    {
-        return self::create([
-            'tipus_id' => $data['tipus_id'],
-            'user_cedula' => $data['user_cedula'],
-            'user_nombre' => $data['user_nombre'],
-            'user_apellido' => $data['user_apellido'],
-            'user_email' => $data['user_email'],
-            'user_password' => Hash::make($data['user_password']), 
-            'user_telefono' => $data['user_telefono'],
-            'user_estado' => $data['user_estado'],
-        ]);
-    }
     
     // Método para obtener el nombre del campo para la autenticación
     public function getAuthIdentifierName()

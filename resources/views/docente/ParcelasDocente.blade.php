@@ -23,22 +23,27 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Área</th>
                     <th>Coordenadas</th>
                     <th>Descripción</th>
                     <th>Muestras</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($parcelas as $parcela)
                     <tr>
-                        <td>{{ $parcela->parc_id }}</td>
                         <td>{{ $parcela->parc_nombre }}</td>
                         <td>{{ $parcela->parc_area }}</td>
                         <td>{{ $parcela->parc_coord_la }}, {{ $parcela->parc_coord_lo }}</td>
                         <td>{{ $parcela->parc_descripcion }}</td>
+                        <td>
+                            @if ($parcela->user_id == auth()->user()->id) 
+                                <a href="{{ route('muestras.create', ['parcela_id' => $parcela->parc_id]) }}" class="btn-agregar">Agregar Muestra</a>
+                            @endif
+                        </td>
+
                     </tr>
                 @endforeach
             </tbody>

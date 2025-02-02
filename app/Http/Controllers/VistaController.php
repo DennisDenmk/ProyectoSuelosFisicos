@@ -15,7 +15,7 @@ class VistaController extends Controller
     {
         // Obtener el usuario por ID
         $user = User::findOrFail($id);
-
+        
         // Mostrar la vista para cambiar la contraseña
         return view('auth.change-password', compact('user'));
     }
@@ -55,7 +55,7 @@ class VistaController extends Controller
         $user = User::findOrFail($id);
 
         // Actualizar la contraseña del usuario
-        $user->user_password = bcrypt($request->new_password);
+        $user->password = bcrypt($request->new_password);
         $user->save();
 
         // Redirigir al login con un mensaje de éxito
