@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Model;
 
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory;
     use Notifiable;
 
     // Tabla asociada al modelo
@@ -49,11 +50,23 @@ class User extends Authenticatable
     {
         return $this->user_password;
     }
-    
+    public function changeNameAndSurname($newName, $newSurname)
+    {
+        $this->user_name = $newName;
+        $this->user_apellido = $newSurname;
+        $this->save();
+    }
     public function parcelas()
     {
         return $this->hasMany(Parcela::class, 'user_id', 'user_id');
     }
+    public function changePassword($newPassword)
+    {
+        $this->update([
+            'user_password' => Hash::make($newPassword),
+        ]);
+    }
+    
    
 
 }

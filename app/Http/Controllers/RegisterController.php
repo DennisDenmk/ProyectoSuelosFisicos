@@ -26,7 +26,7 @@ class RegisterController extends Controller
                 'user_nombre' => 'David',
                 'user_apellido' => 'Ramos',
                 'user_email' => 'david@gmail.com',
-                'user_password' => bcrypt('admin123'),
+                'user_password' => Hash::make('admin123'),
                 'user_telefono' => '0977242576',
                 'user_estado' => true,
             ];
