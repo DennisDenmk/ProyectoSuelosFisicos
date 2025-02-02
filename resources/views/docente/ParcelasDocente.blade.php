@@ -27,7 +27,6 @@
                     <th>Área</th>
                     <th>Coordenadas</th>
                     <th>Descripción</th>
-                    <th>Muestras</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -39,8 +38,8 @@
                         <td>{{ $parcela->parc_coord_la }}, {{ $parcela->parc_coord_lo }}</td>
                         <td>{{ $parcela->parc_descripcion }}</td>
                         <td>
-                            @if ($parcela->user_id == auth()->user()->id) 
-                                <a href="{{ route('muestras.create', ['parcela_id' => $parcela->parc_id]) }}" class="btn-agregar">Agregar Muestra</a>
+                            @if ($parcela->user_id == $user->user_id) 
+                                <a href="{{ route('muestras.show',['parcela_id' => $parcela->parc_id]) }}" class="btnvol">Agregar Muestra</a>
                             @endif
                         </td>
 
