@@ -22,13 +22,14 @@
       <form action="{{ route('login') }}" method="POST">
         @csrf
         <label for="email">Cédula:</label>
-        <input type="text" id="user_cedula" placeholder=".." class="contra" required name="user_cedula" 
+        <input type="text" id="user_cedula" placeholder="" class="contra" required name="user_cedula" 
         :value="old('user_cedula')" maxlength="10" minlength="10">
         <label for="password" >Contraseña:</label>
         <input type="password" id="password" placeholder="Ingrese su contraseña" class="contra" name="password">
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
         <x-input-error :messages="$errors->get('user_cedula')" style="color: #dc2626; font-size: 14px; margin-top: 8px;margin-right:10%" />
       </form>
+      <a href="{{url('/RegistrarNuevoUsuario')}}" style="text-decoration: none;">¿No tienes cuenta?Registrate!!</a>
       <a href="{{url('/Olvidaste-tu-contrasena')}}" style="text-decoration: none;">¿Olvidaste tu contraseña?</a>
     </div>
   </div>

@@ -56,8 +56,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//DAtos prueba
-Route::get('/datos', [RegisterController::class, 'registerUser'])->name('registerUser');
+//Registrar
+Route::get('/RegistrarNuevoUsuario', [RegisterController::class, 'show'])->name('register.show');
+Route::post('/RegistrarNuevoUsuario', [RegisterController::class, 'registerUsuario'])->name('register.create');
 //Docentes
 Route::get('/ParcelasDocente', [Encargadosuelos::class, 'ParcelasDocente'])->name('parcelas.docente');
 

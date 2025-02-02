@@ -7,8 +7,8 @@
     <title>Tus Muestras</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </head>
 
 <body class="bg-[#6B882E] text-gray-800">
