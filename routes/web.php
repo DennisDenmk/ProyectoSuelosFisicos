@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/RegistrarNuevoUsuario', [RegisterController::class, 'show'])->name('register.show');
 Route::post('/RegistrarNuevoUsuario', [RegisterController::class, 'registerUsuario'])->name('register.create');
 //Docentes
-Route::get('/ParcelasDocente', [Encargadosuelos::class, 'ParcelasDocente'])->name('parcelas.docente');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/Perfil', [ProfileController::class, 'showPerfil'])->name('perfil');

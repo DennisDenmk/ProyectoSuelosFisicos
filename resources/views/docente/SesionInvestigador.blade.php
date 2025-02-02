@@ -37,6 +37,7 @@
 
             <div class="card">
                 <img src="{{ asset('images/out.png')}}" alt="Cerrar Sesión">
+                <a href="{{ route('logout') }}" class="btn">Salir</a>
                 <form action="{{route('logout')}}" method="POST">
                     @csrf
                     <button class="btn">Salir</button>

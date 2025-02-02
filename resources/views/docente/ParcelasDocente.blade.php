@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcelas</title>
-    <link rel="stylesheet" href="../CSS/ParcelasInvestigador.css">
+    <link rel="stylesheet" href="{{asset('css/ParcelasInvestigador.css')}}">
 </head>
 
 <body>
