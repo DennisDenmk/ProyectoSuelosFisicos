@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Muestra;
 use App\Models\Parcela;
-use App\Models\Detalles;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,9 +14,9 @@ class VistaController extends Controller
     {
         // Obtener el usuario por ID
         $user = User::findOrFail($id);
-        
+
         // Mostrar la vista para cambiar la contraseña
-        return view('auth.change-password', compact('user'));
+        return view('change-password', compact('user'));
     }
     public function verifyUser(Request $request)
     {
@@ -26,7 +25,7 @@ class VistaController extends Controller
             'user_cedula' => 'required|string|max:255',
             'user_nombre' => 'required|string|max:50',
             'user_apellido' => 'required|string|max:50',
-            'user_email' => 'required|email|max:35',
+            'user_email' => 'required|email|max:50',
         ]);
 
         // Buscar al usuario en la base de datos
@@ -44,23 +43,29 @@ class VistaController extends Controller
         // Si los datos coinciden, redirigir a la página para cambiar la contraseña
         return redirect()->route('password.change', ['id' => $user->user_id]);
     }
+    
+    
     public function updatePassword(Request $request, $id)
     {
-        // Validar la nueva contraseña
-        $request->validate([
-            'new_password' => 'required|string|min:8|confirmed',
-        ]);
+        try {
+            // Validar la nueva contraseña
+            $request->validate([
+                'new_password' => 'required|min:8',
+                'conf_password' => 'required|min:8'
+            ]);
 
-        // Buscar al usuario por ID
-        $user = User::findOrFail($id);
+            $user = User::findOrFail($id);
+            $user->user_password = bcrypt($request['new_password']);
+            $user->save();
 
-        // Actualizar la contraseña del usuario
-        $user->password = bcrypt($request->new_password);
-        $user->save();
-
-        // Redirigir al login con un mensaje de éxito
-        return redirect()->route('login')->with('success', 'Contraseña actualizada con éxito.');
+            // Redirigir al login con un mensaje de éxito
+            return back()->with('success', 'Contraseña actualizada con éxito.');
+        } catch (\Exception $e) {
+            // Redirigir con un mensaje de error
+            return back()->with('error', 'Ocurrió un error al actualizar la contraseña: ' . $e->getMessage());
+        }
     }
+
 
 
     public function mostrarMuestras()

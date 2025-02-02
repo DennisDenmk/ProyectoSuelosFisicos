@@ -75,15 +75,15 @@ class ProfileController extends Controller
                 'user_apellido' => 'required|string|max:50',
             ]);
 
-
-            $user = Auth::user();
+            $usuario = Auth::user();
 
             // Actualizar los campos permitidos
-            $user->user_nombre = $validatedData['user_nombre'];
-            $user->user_apellido = $validatedData['user_apellido'];
+            $usuario->user_nombre = $validatedData['user_nombre'];
+            $usuario->user_apellido = $validatedData['user_apellido'];
 
+            
             // Guardar los cambios
-            $user()->save();
+            $usuario->save();
 
             // Redirigir con un mensaje de éxito
             return back()->with('success', 'Usuario actualizado con éxito.');
@@ -96,21 +96,25 @@ class ProfileController extends Controller
     }
     public function cambiarContrasena(Request $request)
     {
+        try {
         $request->validate([
-            'current_password' => 'required',
-            'new_password' => 'required|min:8|confirmed',
+            'new_password' => 'required|min:8',
+            'conf_password' => 'required|min:8'
         ]);
+        
+        $usuario = Auth::user();
 
-        $user = Auth::user();
-
-        // Verificar contraseña actual
-        if (!Hash::check($request->current_password, $user->password)) {
-            return back()->withErrors(['current_password' => 'La contraseña actual no es correcta']);
-        }
-
+        
         // Actualizar contraseña
-        $user->password = Hash::make($request->new_password);
-        $user()->save();
+        $usuario->user_password = Hash::make($request->new_password);
+        $usuario->save();
+
+        } catch (\Exception $e) {
+            // Manejar errores y redirigir con un mensaje de error
+            return back()->withErrors([
+                'error' => 'Ocurrió un error al actualizar los datos del usuario: ' . $e->getMessage(),
+            ]);
+        }
 
         return back()->with('success', 'Contraseña actualizada exitosamente');
     }
@@ -128,9 +132,6 @@ class ProfileController extends Controller
     }
 
 
-    /**
-     * Update the user's profile information.
-     */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
