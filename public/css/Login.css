@@ -42,7 +42,7 @@ h1 {
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: #506823 3px solid;
-  margin-top: 30%;
+  margin-top: 50%;
 }
 
 .image {
@@ -87,5 +87,26 @@ input {
 .btn:hover {
   background-color: #d4d3d3;
   border: #506823 3px solid;
+  color: #506823;
+}
+.btnvol {
+  margin-right: 30px;
+  margin-left: auto;
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+  padding: 10px;
+  background: white;
+  border: 3px solid #688828;
+  color: #688828;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btnvol:hover {
+  background: #d4d3d3;
+  border-color: #506823;
   color: #506823;
 }

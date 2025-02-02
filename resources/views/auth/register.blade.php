@@ -33,7 +33,7 @@
 
     <header class="header">
         <h2>Registrar Cuenta</h2>
-        <a href="../HTML/SesionInvestigador.html" class="btnvol">Volver</a>
+        <a href="{{route('login')}}" class="btnvol">Volver</a>
     </header>
 
     <div class="container">

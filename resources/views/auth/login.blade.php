@@ -9,9 +9,8 @@
 <body>
   <header class="header">
       <div class="menu container">
-        <h2>SOUL MANAGMENT</h2>
-        <a href="{{asset('/')}}" class="btnvol">Volver</a>
-
+        <h2>SOIL MANAGMENT</h2>
+        <a href="{{url('/login')}}" class="btnvol">Volver</a>
       </div>
   </header>
   <div class="container">
