@@ -8,6 +8,7 @@
 
     <!-- Enlace al CSS de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{{ asset('js/validaciones.js') }}" defer></script>
 </head>
 
 <body>

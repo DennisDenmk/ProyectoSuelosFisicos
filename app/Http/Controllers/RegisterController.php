@@ -22,10 +22,10 @@ class RegisterController extends Controller
             //Usuario 4 Docente
             $data = [
                 'tipus_id' => 4, // ID de tipo válido
-                'user_cedula' => '1000000000',
-                'user_nombre' => 'Dennis',
-                'user_apellido' => 'Mejia',
-                'user_email' => 'memo@gmail.com',
+                'user_cedula' => '1004964217',
+                'user_nombre' => 'David',
+                'user_apellido' => 'Ramos',
+                'user_email' => 'david@gmail.com',
                 'user_password' => bcrypt('admin123'),
                 'user_telefono' => '0977242576',
                 'user_estado' => true,
