@@ -17,6 +17,12 @@ class Encargadosuelos extends Controller
     {
         return view('docente.SesionInvestigador');
     }
+    public function muestras($parcela_id)
+    {
+        $parcela = Parcela::findOrFail($parcela_id);
+        $estructura = Estructura::all();
+        return view('Muestra', compact('parcela'),compact('estructura'));
+    }
 
     public function crear(Request $request)
     {
@@ -158,7 +164,9 @@ class Encargadosuelos extends Controller
 
             // Si todo fue correcto, devolver mensaje de éxito
             return back()->with('success', 'Muestra registrada con éxito');
-        } catch (\Exception $e) {
+
+        } 
+        catch (\Exception $e) {
             // En caso de error, devolver el mensaje de error
             return back()->withErrors([
                 'error' => 'Ocurrió un error: ' . $e->getMessage(),

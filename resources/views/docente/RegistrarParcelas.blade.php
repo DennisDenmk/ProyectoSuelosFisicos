@@ -6,9 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Parcelas</title>
     <link rel="stylesheet" href="../CSS/ResgitrarParcelas.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: "{{ session('success') }}",
+            });
+        </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            let errors = @json($errors->all());
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al procesar',
+                html: errors.map(error => `<li>${error}</li>`).join(''),
+            });
+        </script>
+    @endif
+
 
     <header class="header">
         <h2>Registrar Parcelas</h2>
@@ -39,7 +61,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Area:</label>
+                    <label>Area en metros:</label>
                     <br>
                     <input type="number" name="parc_area" id="parc_area" class="form-control" step="0.01" required>
                 </div>
@@ -59,25 +81,10 @@
                 <div class="form-group">
                     <label>Descripción:</label>
                     <br>
-                    <textarea name="parc_descripcion" id="parc_descripcion" class="form-control"></textarea>
+                    <input name="parc_descripcion" id="parc_descripcion" class="form-control"></input>
                 </div>
                 <button type="submit" class="btn">Registrar Parcela</button>
             </form>
-            @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-            @endif
-
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <p>{{ $error }}</p>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
         </div>
     </div>

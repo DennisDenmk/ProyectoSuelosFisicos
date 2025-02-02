@@ -7,6 +7,8 @@ use App\Models\Muestra;
 use App\Models\Parcela;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class VistaController extends Controller
 {
@@ -43,8 +45,8 @@ class VistaController extends Controller
         // Si los datos coinciden, redirigir a la página para cambiar la contraseña
         return redirect()->route('password.change', ['id' => $user->user_id]);
     }
-    
-    
+
+
     public function updatePassword(Request $request, $id)
     {
         try {
@@ -55,7 +57,7 @@ class VistaController extends Controller
             ]);
 
             $user = User::findOrFail($id);
-            $user->user_password = bcrypt($request['new_password']);
+            $user->user_password = hash::make($request['new_password']);
             $user->save();
 
             // Redirigir al login con un mensaje de éxito
@@ -86,9 +88,11 @@ class VistaController extends Controller
     }
     public function mostrarParcelasDocente()
     {
-        // Obtener todas las muestras junto con los detalles relacionados
+        // Obtener todas las parcelas
+        $user = Auth::user();
         $parcelas = Parcela::all();
-        // Retornar a la vista y pasar las muestras con los detalles y su textura
-        return view('docente.ParcelasDocente', compact('parcelas'));
+
+        // Retornar a la vista con todas las parcelas
+        return view('docente.ParcelasDocente', compact('parcelas', 'user'));
     }
 }
