@@ -18,37 +18,38 @@
     <div class="table-container">
         <!-- Tabla de Parcelas -->
         @if ($parcelas->isEmpty())
-        <p class="text-muted">No tienes parcelas registradas.</p>
+            <p class="text-muted">No tienes parcelas registradas.</p>
         @else
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Área</th>
-                    <th>Coordenadas</th>
-                    <th>Descripción</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($parcelas as $parcela)
-                    <tr>
-                        <td>{{ $parcela->parc_nombre }}</td>
-                        <td>{{ $parcela->parc_area }}</td>
-                        <td>{{ $parcela->parc_coord_la }}, {{ $parcela->parc_coord_lo }}</td>
-                        <td>{{ $parcela->parc_descripcion }}</td>
-                        <td>
-                            @if ($parcela->user_id == $user->user_id) 
-                                <a href="{{ route('muestras.show',['parcela_id' => $parcela->parc_id]) }}" class="btnvol">Agregar Muestra</a>
-                            @endif
-                        </td>
-
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Área</th>
+                            <th>Coordenadas</th>
+                            <th>Descripción</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($parcelas as $parcela)
+                            <tr>
+                                <td>{{ $parcela->parc_nombre }}</td>
+                                <td>{{ $parcela->parc_area }}</td>
+                                <td>{{ $parcela->parc_coord_la }}, {{ $parcela->parc_coord_lo }}</td>
+                                <td>{{ $parcela->parc_descripcion }}</td>
+                                <td>
+                                    @if ($parcela->user_id == $user->user_id) 
+                                        <a href="{{ route('muestras.show',['parcela_id' => $parcela->parc_id]) }}" class="btnvol">Agregar Muestra</a>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         @endif
-    </div>
+    </div>    
 </body>
 
 </html>
