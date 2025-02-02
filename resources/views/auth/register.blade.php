@@ -33,7 +33,7 @@
 
     <header class="header">
         <h2>Registrar Cuenta</h2>
-        <a href="{{route('login')}}" class="btnvol">Volver</a>
+        <a href="{{ route('login') }}" class="btnvol">Volver</a>
     </header>
 
     <div class="container">
@@ -43,59 +43,49 @@
                 @csrf
                 <div class="form-group">
                     <label>Tipo de Usuario:</label>
-                    <form>
-                        <select name="Parcelas" id="tipus_id" class="Parcelas" placeholder="Usuario">
-                            <option value="3">Estudiante</option>
-                            <option value="4">Docente</option>
-                        </select>
-                    </form>
+                    <select name="tipus_id" id="tipus_id" class="Parcelas" required>
+                        <option value="3">Estudiante</option>
+                        <option value="4">Docente</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Cedula:</label>
-                    <br>
-                    <input type="text" id="user_cedula" placeholder="Ingrese su Cedula" maxlength="10" min="10" required>
+                    <label>Cédula:</label>
+                    <input type="text" name="user_cedula" id="user_cedula" placeholder="Ingrese su Cédula" maxlength="10" required>
                 </div>
 
                 <div class="form-group">
                     <label>Nombre:</label>
-                    <br>
-                    <input type="text" id="user_nombre" placeholder="Ingrese su Nombre" required>
+                    <input type="text" name="user_nombre" id="user_nombre" placeholder="Ingrese su Nombre" required>
                 </div>
 
                 <div class="form-group">
                     <label>Apellido:</label>
-                    <br>
-                    <input type="text" id="user_apellido" placeholder="Ingrese su Apellido" required>
+                    <input type="text" name="user_apellido" id="user_apellido" placeholder="Ingrese su Apellido" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Correo Electronico:</label>
-                    <br>
-                    <input type="email" id="user_email" placeholder="Ingrese su correo" required>
+                    <label>Correo Electrónico:</label>
+                    <input type="email" name="user_email" id="user_email" placeholder="Ingrese su Correo Electrónico" required>
                 </div>
 
                 <div class="form-group">
                     <label>Contraseña:</label>
-                    <br>
-                    <input type="password" id="user_password"placeholder="" minlength="8" required>
+                    <input type="password" name="user_password" id="user_password" placeholder="Ingrese su Contraseña" minlength="8" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Confirmar contraseña:</label>
-                    <br>
-                    <input type="password" name="user_password_confirmation" minlength="8" required>
+                    <label>Confirmar Contraseña:</label>
+                    <input type="password" name="user_password_confirmation" id="user_password_confirmation" placeholder="Confirme su Contraseña" minlength="8" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Telefono:</label>
-                    <br>
-                    <input type="text" id="user_telefono" placeholder="" minlength="10" maxlength="10" required>
+                    <label>Teléfono:</label>
+                    <input type="text" name="user_telefono" id="user_telefono" placeholder="Ingrese su Teléfono" maxlength="10" required>
                 </div>
 
                 <button type="submit" class="btn">Registrarse</button>
             </form>
-
         </div>
     </div>
 
