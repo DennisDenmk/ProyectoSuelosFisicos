@@ -34,7 +34,7 @@ Route::post('/password-recovery', [VistaController::class, 'verifyUser'])->name(
 Route::get('/password-change/{id}', [VistaController::class, 'showChangePasswordForm'])->name('password.change');
 
 // Actualizar la contraseña
-Route::post('/password-change/{id}', [VistaController::class, 'updatePassword'])->name('password.update');
+Route::put('/password-change/{id}', [VistaController::class, 'updatePassword'])->name('password.update');
 
 
 

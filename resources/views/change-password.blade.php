@@ -39,35 +39,9 @@
                 <input type="password" name="new_password" id="new_password" class="form-control" required>
             </div>
         
-            <div class="form-group mb-3">
-                <label for="conf_password">Confirmar Contraseña:</label>
-                <input type="password" name="conf_password" id="conf_password" class="form-control" required>
-            </div>
-        
             <button type="submit" class="btn btn-success">Actualizar Contraseña</button>
         </form>
         
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const newPassword = document.getElementById('new_password');
-                const confirmPassword = document.getElementById('conf_password');
-                const submitButton = document.getElementById('submit-button');
-                const errorMessage = document.getElementById('error-message');
-
-                const validatePasswords = () => {
-                    if (newPassword.value === confirmPassword.value && newPassword.value !== '') {
-                        submitButton.disabled = false;
-                        errorMessage.style.display = 'none';
-                    } else {
-                        submitButton.disabled = true;
-                        errorMessage.style.display = 'block';
-                    }
-                };
-
-                newPassword.addEventListener('input', validatePasswords);
-                confirmPassword.addEventListener('input', validatePasswords);
-            });
-        </script>
     </div>
 </body>
 </html>

@@ -46,33 +46,21 @@ class VistaController extends Controller
 
     public function updatePassword(Request $request, $id)
     {
-        // Validar que las contraseñas coincidan y tengan al menos 8 caracteres
+        // Validar la contraseña
         $request->validate([
-            'new_password' => 'required|min:8|same:conf_password',
-            'conf_password' => 'required|min:8'
-        ], [
-            'new_password.same' => 'Las contraseñas no coinciden.',
-            'new_password.min' => 'La contraseña debe tener al menos 8 caracteres.'
+            'new_password' => 'required|min:8|confirmed',  // Validación de la nueva contraseña
         ]);
 
-        try {
-            // Buscar al usuario en la base de datos
-            $user = User::findOrFail(17);     
-            // Encriptar la nueva contraseña
-            $user->user_password = Hash::make($request->new_password);
+        // Buscar al usuario por su ID
+        $user = User::findOrFail($id);
 
-            // Guardar cambios en la base de datos
-            $user->save();
+        // Encriptar y actualizar la contraseña
+        $user->user_password = Hash::make($request->new_password);
+        $user->save();
 
-            // Redirigir con mensaje de éxito
-            return back()->with('success', 'Contraseña actualizada con éxito.');
-        } catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Ocurrió un error al actualizar la contraseña: ' . $e->getMessage()]);
-        }
+        // Redirigir con mensaje de éxito
+        return back()->with('success', 'Contraseña actualizada con éxito.');
     }
-
-    
-
 
 
     public function mostrarMuestras()
