@@ -42,8 +42,6 @@ class VistaController extends Controller
         return redirect()->route('password.change', ['id' => $user->user_id]);
     }
 
-
-
     public function updatePassword(Request $request, $id)
     {
         // Validar la contraseña
@@ -61,7 +59,6 @@ class VistaController extends Controller
         // Redirigir con mensaje de éxito
         return back()->with('success', 'Contraseña actualizada con éxito.');
     }
-
 
     public function mostrarMuestras()
     {

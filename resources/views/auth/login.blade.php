@@ -29,7 +29,7 @@
       <br>
       <a href="{{url('/RegistrarNuevoUsuario')}}" style="text-decoration: none;">¿No tienes cuenta?Registrate!!</a>
       <br>
-      <a href="{{url('/Olvidaste-tu-contrasena')}}" style="text-decoration: none;">¿Olvidaste tu contraseña?</a>
+      <!--<a href="{{url('/Olvidaste-tu-contrasena')}}" style="text-decoration: none;">¿Olvidaste tu contraseña?</a>-->
     </div>
   </div>
 </body>

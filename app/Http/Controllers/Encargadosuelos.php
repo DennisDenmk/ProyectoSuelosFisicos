@@ -40,6 +40,27 @@ class Encargadosuelos extends Controller
         }
     }
 
+    public function parcelaDestroy($id)
+    {
+        try {
+            // Buscar la parcela por ID
+            $parcela = Parcela::findOrFail($id);
+
+            // Verificar que el usuario actual sea el dueño de la parcela
+            if (Auth::user()->user_id !== $parcela->user_id) {
+                return back()->withErrors(['error' => 'No tienes permiso para eliminar esta parcela.']);
+            }
+
+            // Eliminar la parcela
+            $parcela->delete();
+
+            // Retornar con mensaje de éxito
+            return back()->with('success', 'Parcela eliminada con éxito.');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Error al eliminar la parcela: ' . $e->getMessage()]);
+        }
+    }
+
 
     public function crear(Request $request)
     {
@@ -70,6 +91,7 @@ class Encargadosuelos extends Controller
             return back()->withErrors(['error' => 'Error al crear parcela: ' . $e->getMessage()]);
         }
     }
+
     public function ParcelasEstudiante()
     {
         // Obtener el usuario autenticado
