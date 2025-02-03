@@ -13,29 +13,29 @@
 
 <body>
     @if (session('success'))
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: '¡Éxito!',
-                    text: "{{ session('success') }}",
-                });
-            </script>
-        @endif
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: "{{ session('success') }}",
+            });
+        </script>
+    @endif
 
-        @if ($errors->any())
-            <script>
-                let errors = @json($errors->all());
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error al procesar',
-                    html: errors.map(error => `<li>${error}</li>`).join(''),
-                });
-            </script>
-        @endif
+    @if ($errors->any())
+        <script>
+            let errors = @json($errors->all());
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al procesar',
+                html: errors.map(error => `<li>${error}</li>`).join(''),
+            });
+        </script>
+    @endif
 
     <header class="header">
-    <h2>SOUL MANAGMENT</h2>
-    <a href="{{ route('parcelas') }}" class="btnvol">Volver</a>
+        <h2>SOUL MANAGMENT</h2>
+        <a href="{{ route('parcelas') }}" class="btnvol">Volver</a>
     </header>
 
     <div class="container">
@@ -43,10 +43,13 @@
         <div class="left-column">
             <h2>Datos de Parcela:</h2>
             <br>
-                <p><strong>Parcela:</strong>{{ $parcela->parc_nombre }}</p>
-                <p><strong>Código:</strong> {{ $parcela->parc_id }}</p>
-                <p><strong>Coordenadas:</strong> Cubilche</p>
-                <p><strong>Descripcion:</strong>{{ $parcela->parc_descripcion }}</p>
+            <p><strong>Parcela:</strong>{{ $parcela->parc_nombre }}</p>
+            <p><strong>Código:</strong> {{ $parcela->parc_id }}</p>
+            <p><strong>Coordenadas:</strong> {{ $parcela->parc_id }}</p>
+            <p><strong>Area(metros):</strong> {{ $parcela->parc_area }}</p>
+            <p><strong>Latitud:</strong> {{ $parcela->parc_coord_la }}</p>
+            <p><strong>Longitud:</strong> {{ $parcela->parc_coord_lo }}</p>
+            <p><strong>Descripcion:</strong>{{ $parcela->parc_descripcion }}</p>
         </div>
 
         <!-- Columna Derecha -->
@@ -122,34 +125,57 @@
             const arena = parseFloat(document.getElementById("detal_arena").value) || 0;
             const limo = parseFloat(document.getElementById("detal_limo").value) || 0;
             const arcilla = parseFloat(document.getElementById("detal_arcilla").value) || 0;
-    
+
             const total = arena + limo + arcilla;
-    
+
             // Show warning if sum is not 100, hide warning if sum is 100
             const warningMessage = document.getElementById("warning-message");
             if (total !== 100) {
-                warningMessage.style.display = "block";  // Show warning
+                warningMessage.style.display = "block"; // Show warning
                 return false;
             } else {
-                warningMessage.style.display = "none";  // Hide warning
+                warningMessage.style.display = "none"; // Hide warning
             }
-    
+
             return true;
         }
-    
+
         // Add event listeners to check the sum when the inputs change
         document.getElementById("detal_arena").addEventListener("input", checkSum);
         document.getElementById("detal_limo").addEventListener("input", checkSum);
         document.getElementById("detal_arcilla").addEventListener("input", checkSum);
-    
+
         // Check the sum before form submission
         const form = document.querySelector("form");
         form.addEventListener("submit", function(event) {
             if (!checkSum()) {
-                event.preventDefault();  // Prevent form submission if the sum is not 100
+                event.preventDefault(); // Prevent form submission if the sum is not 100
             }
         });
     </script>
-    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            const pesoHumedoInput = document.getElementById("detal_pesohumedo");
+            const pesoSecoInput = document.getElementById("detal_pesoseco");
+
+            form.addEventListener("submit", function(event) {
+                const pesoHumedo = parseFloat(pesoHumedoInput.value);
+                const pesoSeco = parseFloat(pesoSecoInput.value);
+
+                if (isNaN(pesoHumedo) || isNaN(pesoSeco)) {
+                    alert("Ambos valores deben ser números válidos.");
+                    event.preventDefault(); // Detiene el envío del formulario
+                    return;
+                }
+
+                if (pesoHumedo <= pesoSeco) {
+                    alert("El peso húmedo debe ser mayor que el peso seco.");
+                    event.preventDefault(); // Detiene el envío del formulario
+                }
+            });
+        });
+    </script>
+</body>
 
 </html>
