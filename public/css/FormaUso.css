@@ -13,7 +13,7 @@ body {
 
 .header {
     padding-left: 20px;
-    position: fixed;
+    position:absolute;
     top: 0;
     width: 100%;
     background: #6B882E;
@@ -27,53 +27,42 @@ body {
     padding: 10px 20px;
 }
 
-.header h2{
+.header h2 {
     margin-left: 30px;
 }
 
 /* Contenedor principal */
 .container {
-    margin-left: 2%;
+    margin-top: 50%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Asegurar alineación vertical */
-    width: 65%;
-    /* Ajustado para más espacio */
-    max-width: 900px;
-    /* Un poco más ancho */
+    width: 80%;
+    /* Reduce el ancho total */
+    max-width: 650px;
+    /* Establece un ancho máximo más pequeño */
     background: #F6FAEB;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    /* Aumento para mejor separación */
+    /* Reduce el relleno */
     gap: 20px;
 }
 
-/* Caja de información */
-.info-box {
-    background-color: #EBF3D4;
-    width: 100%;
-    padding: 16px;
-    /* Mayor padding para mejor legibilidad */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    line-height: 1.5;
-    /* Espaciado entre líneas */
-}
-
-/* Columna derecha */
+/* Columna Derecha */
 .right-column {
-    width: 50%;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 25px;
+    /* Reduce el relleno interno */
+    background-color: #EBF3D4;
+    border-radius: 10px;
+    width: 100%;
+    /* Haz que ocupe todo el ancho disponible */
+    max-width: 600px;
+    /* Define un límite máximo más pequeño */
 }
 
-.right-column img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+.right-column p {
+    text-align: justify;
+    line-height: 1.2;
 }
 
 .btnvol {
