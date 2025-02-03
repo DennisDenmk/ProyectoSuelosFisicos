@@ -55,7 +55,7 @@ class Encargadosuelos extends Controller
         try {
             $user = Auth::user();
             $parcela = Parcela::create([
-                'cons_id' => 1,
+                'cons_id' => 0,
                 'tipos_id' => $validatedData['tipos_id'],
                 'user_id' => $user->user_id,
                 'parc_nombre' => $validatedData['parc_nombre'] ?? null,
