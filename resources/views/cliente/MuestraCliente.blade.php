@@ -47,6 +47,7 @@
                 <thead class="bg-[#688828] text-white">
                     <tr>
                         <th class="px-4 py-2">ID de Muestra</th>
+                        <th class="px-4 py-2">HUMEDAD</th>
                         <th class="px-4 py-2">PARCELA</th>
                         <th class="px-4 py-2">ESTRUCTURA</th>
                         <th class="px-4 py-2">POROSIDAD</th>
@@ -59,6 +60,21 @@
                     @foreach ($muestras as $muestra)
                         <tr class="text-center border-b">
                             <td class="px-4 py-2">{{ $muestra->muest_id }}</td>
+                            <td class="px-4 py-2">
+                                @if ($muestra->detalles)
+                                    @php
+                                        // Calcular la humedad con la fórmula
+                                        $humedad =
+                                            (($muestra->detalles->detal_pesohumedo -
+                                                $muestra->detalles->detal_pesoseco) /
+                                                $muestra->detalles->detal_pesoseco) *
+                                            100;
+                                    @endphp
+                                    {{ number_format($humedad, 2) }} % <!-- Mostrar humedad con dos decimales -->
+                                @else
+                                    No disponible
+                                @endif
+                            </td>
                             <td class="px-4 py-2">{{ $muestra->parcela->parc_id }}</td>
                             <td class="px-4 py-2">
                                 {{ $muestra->detalles->estructura->estru_descripcion }}
@@ -317,9 +333,9 @@
                     let match = false;
                     const parcela = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
                     const porosidad = row.querySelector('td:nth-child(4)').textContent
-                .toLowerCase();
+                        .toLowerCase();
                     const estructura = row.querySelector('td:nth-child(3)').textContent
-                    .toLowerCase();
+                        .toLowerCase();
                     const textura = row.querySelector('td:nth-child(6)').textContent.toLowerCase();
 
                     switch (selectedFilter) {
