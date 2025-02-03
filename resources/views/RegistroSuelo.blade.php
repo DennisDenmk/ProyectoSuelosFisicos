@@ -11,10 +11,15 @@
 
 <body>
     <nav>
-        <a href="{{ route('parcelas') }}" class="block w-full">
-            <button type="submit" class="btn btn-success">Volver</button>
-        </a>
+
     </nav>
+    <header class="header">
+        <h2>Parcelas</h2>
+        <a href="{{ route('parcelas') }}" class="block w-full">
+            <button type="submit" class="btnvol">Volver</button>
+        </a>
+    </header>
+
     <div class="container">
         <h2 class="mb-4">Registro de Muestras</h2>
         <!-- Formulario para registrar muestra -->
@@ -81,7 +86,7 @@
                 <button type="submit" class="btn btn-primary">Registrar Muestra</button>
             </div>
         </form>
-    
+
     </div>
 
     <!-- Enlace al JS de Bootstrap -->

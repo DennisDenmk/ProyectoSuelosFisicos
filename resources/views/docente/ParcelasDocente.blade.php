@@ -40,7 +40,7 @@
                                 <td>{{ $parcela->parc_descripcion }}</td>
                                 <td>
                                     @if ($parcela->user_id == $user->user_id) 
-                                        <a href="{{ route('muestras.show',['parcela_id' => $parcela->parc_id]) }}" class="btnvol">Agregar Muestra</a>
+                                        <a href="{{ route('muestras.show',['parcela_id' => $parcela->parc_id]) }}" class="btnMuestra">Agregar Muestra</a>
                                     @endif
                                 </td>
                             </tr>

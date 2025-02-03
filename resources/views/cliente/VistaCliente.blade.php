@@ -28,15 +28,20 @@
                 <img src="{{ asset('images/World.png') }}" alt="Muestras">
                 <a href="{{ url('/MuestrasEstudiante') }}" class="btn">Ver Muestras</a>
             </div>
+        </div>
+
+        <div class="logout-card">
             <div class="card">
                 <img src="{{ asset('images/out.png') }}" alt="Salir">
-                <form action="{{route('logout')}}" method="POST">
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="btn">Salir</button>
                 </form>
             </div>
+
         </div>
     </main>
 
 </body>
+
 </html>

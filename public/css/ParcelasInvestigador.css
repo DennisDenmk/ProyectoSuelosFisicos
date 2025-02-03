@@ -1,9 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #eef2d3;
-    margin: 0;
-    padding: 0;
-}
 
 /* General */
 body {
@@ -88,10 +82,31 @@ th {
 }
 
 .btnvol:hover {
-    background: #69ad72;
+    background: #cbcdcb;
     border-color: #506823;
     color: #506823;
 }
+
+.btnMuestra {
+    display: inline-block;
+    width: 35%;
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border: 3px solid #688828;
+    color: #688828;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btnMuestra:hover {
+    background: #dae5db;
+    border-color: #506823;
+    color: #506823;
+}
+
 .table-container {
     margin: 20px 0;
 }

@@ -42,12 +42,11 @@
         <!-- Columna Izquierda -->
         <div class="left-column">
             <h2>Datos de Parcela:</h2>
-            <div class="info-box">
+            <br>
                 <p><strong>Parcela:</strong>{{ $parcela->parc_nombre }}</p>
                 <p><strong>Código:</strong> {{ $parcela->parc_id }}</p>
                 <p><strong>Coordenadas:</strong> Cubilche</p>
                 <p><strong>Descripcion:</strong>{{ $parcela->parc_descripcion }}</p>
-            </div>
         </div>
 
         <!-- Columna Derecha -->
