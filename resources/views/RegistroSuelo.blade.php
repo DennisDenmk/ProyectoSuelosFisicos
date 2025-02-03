@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Muestras</title>
-
-    <!-- Enlace al CSS de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="{{ asset('js/validaciones.js') }}" defer></script>
 </head>
 
 <body>
     <nav>
-        <a href="{{ route('parcelas') }}" class="block w-full">
-            <button type="submit" class="btn btn-success">Volver</button>
-        </a>
+
     </nav>
+    <header class="header">
+        <h2>Parcelas</h2>
+        <a href="{{ route('parcelas') }}" class="block w-full">
+            <button type="submit" class="btnvol">Volver</button>
+        </a>
+    </header>
+
     <div class="container">
         <h2 class="mb-4">Registro de Muestras</h2>
         <!-- Formulario para registrar muestra -->
@@ -83,7 +86,7 @@
                 <button type="submit" class="btn btn-primary">Registrar Muestra</button>
             </div>
         </form>
-    
+
     </div>
 
     <!-- Enlace al JS de Bootstrap -->

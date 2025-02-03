@@ -21,8 +21,25 @@ class Encargadosuelos extends Controller
     {
         $parcela = Parcela::findOrFail($parcela_id);
         $estructura = Estructura::all();
-        return view('Muestra', compact('parcela'),compact('estructura'));
+        return view('Muestra', compact('parcela'), compact('estructura'));
     }
+    public function muestradestroy($id)
+    {
+        try {
+            // Buscar la muestra por su ID
+            $muestra = Muestra::findOrFail($id);
+
+            // Eliminar la muestra
+            $muestra->delete();
+
+            // Retornar una respuesta de éxito o redirigir
+            return back()->with('success', 'Muestra eliminada con éxito.');
+        } catch (\Exception $e) {
+            // Manejar errores y retornar respuesta
+            return back()->with('error', 'Error al eliminar la muestra: ' . $e->getMessage());
+        }
+    }
+
 
     public function crear(Request $request)
     {
@@ -164,9 +181,7 @@ class Encargadosuelos extends Controller
 
             // Si todo fue correcto, devolver mensaje de éxito
             return back()->with('success', 'Muestra registrada con éxito');
-
-        } 
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             // En caso de error, devolver el mensaje de error
             return back()->withErrors([
                 'error' => 'Ocurrió un error: ' . $e->getMessage(),

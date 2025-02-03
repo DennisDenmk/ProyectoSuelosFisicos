@@ -11,6 +11,7 @@ body {
 
 .header {
   position: fixed;
+  display: flex;
   top: 0;
   width: 100%;
   background: #688828;
@@ -19,9 +20,14 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 10;
   background: #688828;
-  padding: 20px;
+  padding:10px 20px;
   color: white;
-  font-weight: bold;
+  align-items: center;
+justify-content: space-between;
+}
+
+.header h2{
+  margin-left: 20px;
 }
 
 .container {
@@ -42,7 +48,7 @@ h1 {
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: #506823 3px solid;
-  margin-top: 50%;
+  margin-top: 85px;
 }
 
 .image {

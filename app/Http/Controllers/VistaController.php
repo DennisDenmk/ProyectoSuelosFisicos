@@ -66,13 +66,15 @@ class VistaController extends Controller
     public function mostrarMuestras()
     {
         // Obtener todas las muestras junto con los detalles relacionados
+        $user = Auth::user();
         $muestras = Muestra::with('detalles')->get();
 
         // Retornar a la vista y pasar las muestras con los detalles y su textura
-        return view('docente.MuestraDocente', compact('muestras'));
+        return view('docente.MuestraDocente', compact('muestras','user'));
     }
     public function mostrarMuestrasEstudiente()
     {
+        $usuarios = Auth::user();
         // Obtener todas las muestras junto con los detalles relacionados
         $muestras = Muestra::with('detalles')->get();
 

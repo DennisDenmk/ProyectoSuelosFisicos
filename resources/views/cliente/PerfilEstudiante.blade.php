@@ -46,24 +46,9 @@
         <!-- Columna Derecha -->
         <div class="right-column">
             <h3>Actualizar Datos</h3>
-            <form>
-                <div class="form-group">
-                    <label for="current-password">Contraseña Actual:</label>
-                    <input type="password" id="current-password" required>
-                </div>
-                <div class="form-group">
-                    <label for="new-password">Nueva Contraseña:</label>
-                    <input type="password" id="new-password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirmar Contraseña:</label>
-                    <input type="password" id="confirm-password" required>
-                </div>
-                <button type="submit" class="btn">Actualizar Datos</button>
-            </form>
+            <x-forms.update-password />
         </div>
     </div>
-    <script src="{{ asset('js/validaciones.js') }}" defer></script>
     <script src="{{ asset('js/alerta.js') }}" defer></script>
 </body>
 
