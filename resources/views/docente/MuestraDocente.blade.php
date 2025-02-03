@@ -32,13 +32,13 @@
     </script>
 @endif
 
-<body class="bg-[#6B882E] text-gray-800">
+<body class="bg-[#eef2d3] text-gray-800">
 
     <header class="header py-8 bg-[#6B882E] text-white">
         <div class="flex justify-between items-center">
-            <h2 class="text-3xl font-semibold">Información de Muestras de Suelo</h2>
+            <h2 class="text-3xl font-semibold ml-8">Información de Muestras de Suelo</h2>
             <a href="{{ url('/Docente') }}"
-                class="rounded-md px-4 py-2 hover:bg-[#6B882E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B882E]">
+                class="rounded-md p-3 mr-8 border-[3px] border-[#506823] bg-white text-[#688828] w-500 hover:bg-[#d4d3d3] border-hover">
                 Volver
             </a>
         </div>
@@ -46,9 +46,9 @@
     <div class="container mx-auto mt-8">
         <!-- Filtro -->
         <div class="mb-6">
-            <label for="filterSelect" class="block text-[#6B882E] font-medium">Buscar por:</label>
+            <label for="filterSelect" class="block text-[#688828] font-medium">Buscar por:</label>
             <select id="filterSelect"
-                class="block w-full border border-green-300 rounded mt-2 p-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                class="block w-full border border-[#688828] rounded mt-2 p-2 focus:outline-none focus:ring-2 focus:ring-green-500">
                 <option value="parcela">Parcela</option>
                 <option value="porosidad">Porosidad</option>
                 <option value="textura">Textura</option>
@@ -65,7 +65,7 @@
             <p class="text-gray-600 text-center">No hay muestras registradas.</p>
         @else
             <table class="table-auto w-full bg-white shadow-md rounded-lg overflow-hidden">
-                <thead class="bg-green-700 text-white">
+                <thead class="bg-[#688828] text-white">
                     <tr>
                         <th class="px-4 py-2">ID de Muestra</th>
                         <th class="px-4 py-2">PARCELA</th>
@@ -122,13 +122,13 @@
                             </td>
                             <td class="px-4 py-2">{{ $muestra->muest_fecharegistro }}</td>
                             <td>
-                                
+
                                 @if ($muestra->Parcela->user_id == $user->user_id)
                                     <form action="{{ route('borrar.muestra', $muestra->muest_id) }}" method="POST"
                                         onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta muestra?');">
                                         @csrf
                                         @method('DELETE')
-                                        
+
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
 
                                     </form>

@@ -12,11 +12,7 @@
 
     <header class="header">
         <h2>Parcelas</h2>
-        <form action="{{ route('verEstudiante') }}" method="GET">
-            <button type="submit" class="btn btn-primary">
-                Volver
-            </button>
-        </form>
+        <a href="{{url('/Estudiante')}}" class="btnvol">Volver</a>
     </header>
     <div class="table-container">
         <div class="table-container">
