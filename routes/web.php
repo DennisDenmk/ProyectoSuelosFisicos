@@ -22,6 +22,7 @@ Route::get('/Mision', function () {
 Route::get('/Contactos', function () {
     return view('Integrantes');
 });
+
 //Recuperar contraseña
 Route::get('/Olvidaste-tu-contrasena', function() {
     return view('recuperarcontrasena');
@@ -34,6 +35,9 @@ Route::get('/password-change/{id}', [VistaController::class, 'showChangePassword
 
 // Actualizar la contraseña
 Route::post('/password-change/{id}', [VistaController::class, 'updatePassword'])->name('password.update');
+
+
+
 
 //login
 Route::get('login', [ProfileController::class, 'show'])->name('login');
