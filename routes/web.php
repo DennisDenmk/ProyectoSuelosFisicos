@@ -79,8 +79,12 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/RegistrarDatos', [Encargadosuelos::class, 'misParcelas'])->name('muestras');
     Route::post('/RegistrarDatos/CrearParcela', [Encargadosuelos::class, 'crear'])->name('parcelas.crear');
+
     Route::get('/RegistrarDatos/CrearMuestra/{parcela_id}', [Encargadosuelos::class, 'muestras'])->name('muestras.show');
+
     Route::post('/RegistrarDatos/CrearMuestra', [Encargadosuelos::class, 'crearMuestras'])->name('muestras.create');
+    //eliminar parcela
+    Route::delete('/BorrarParcela/{id}', [Encargadosuelos::class, 'parcelaDestroy'])->name('borrar.parcela');
     Route::delete('/BorrarMuestra/{id}', [Encargadosuelos::class, 'muestradestroy'])->name('borrar.muestra');
 
     Route::get('/Docente/Muestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');

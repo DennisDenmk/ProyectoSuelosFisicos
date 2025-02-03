@@ -81,6 +81,19 @@ th {
     cursor: pointer;
 }
 
+.btnEliminar {
+    background-color: #ee6072;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btnEliminar:hover {
+    background-color: #ff0000;
+}
+
 .btnvol:hover {
     background: #cbcdcb;
     border-color: #506823;
