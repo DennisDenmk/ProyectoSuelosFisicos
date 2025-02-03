@@ -19,6 +19,9 @@ Route::get('/Vision', function () {
 Route::get('/Mision', function () {
     return view('Mision');
 });
+Route::get('/FormaUso', function () {
+    return view('FormaUso');
+});
 Route::get('/Contactos', function () {
     return view('Integrantes');
 });

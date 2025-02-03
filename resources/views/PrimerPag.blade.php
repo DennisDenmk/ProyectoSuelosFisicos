@@ -34,7 +34,7 @@
                                 <li><a href="{{url('/Mision')}}">Mision</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Forma de Uso</a></li>
+                        <li><a href="{{url('/FormaUso')}}">Forma de Uso</a></li>
                     </ul>
                 </nav>
             </div>
