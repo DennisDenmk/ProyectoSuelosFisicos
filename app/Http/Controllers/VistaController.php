@@ -22,52 +22,45 @@ class VistaController extends Controller
     }
     public function verifyUser(Request $request)
     {
-        // Validar los datos del formulario
+        // Validar solo cédula y correo
         $request->validate([
             'user_cedula' => 'required|string|max:255',
-            'user_nombre' => 'required|string|max:50',
-            'user_apellido' => 'required|string|max:50',
-            'user_email' => 'required|email|max:50',
+            'user_email'  => 'required|email|max:50',
         ]);
 
-        // Buscar al usuario en la base de datos
+        // Buscar al usuario en la base de datos utilizando la cédula y el correo
         $user = User::where('user_cedula', $request->user_cedula)
-            ->where('user_nombre', $request->user_nombre)
-            ->where('user_apellido', $request->user_apellido)
-            ->where('user_email', $request->user_email)
-            ->first();
+                    ->where('user_email', $request->user_email)
+                    ->first();
 
-        // Verificar si el usuario existe
+        // Si no se encuentra el usuario, se regresa con un error
         if (!$user) {
             return back()->withErrors(['error' => 'Los datos ingresados no coinciden con ningún usuario.']);
         }
 
-        // Si los datos coinciden, redirigir a la página para cambiar la contraseña
+        // Si se encuentra el usuario, redirigir al formulario para cambiar la contraseña
         return redirect()->route('password.change', ['id' => $user->user_id]);
     }
 
 
+
     public function updatePassword(Request $request, $id)
     {
-        try {
-            // Validar la nueva contraseña
-            $request->validate([
-                'new_password' => 'required|min:8',
-                'conf_password' => 'required|min:8'
-            ]);
+        // Validar la contraseña
+        $request->validate([
+            'new_password' => 'required|min:8|confirmed',  // Validación de la nueva contraseña
+        ]);
 
-            $user = User::findOrFail($id);
-            $user->user_password = hash::make($request['new_password']);
-            $user->save();
+        // Buscar al usuario por su ID
+        $user = User::findOrFail($id);
 
-            // Redirigir al login con un mensaje de éxito
-            return back()->with('success', 'Contraseña actualizada con éxito.');
-        } catch (\Exception $e) {
-            // Redirigir con un mensaje de error
-            return back()->with('error', 'Ocurrió un error al actualizar la contraseña: ' . $e->getMessage());
-        }
+        // Encriptar y actualizar la contraseña
+        $user->user_password = Hash::make($request->new_password);
+        $user->save();
+
+        // Redirigir con mensaje de éxito
+        return back()->with('success', 'Contraseña actualizada con éxito.');
     }
-
 
 
     public function mostrarMuestras()
