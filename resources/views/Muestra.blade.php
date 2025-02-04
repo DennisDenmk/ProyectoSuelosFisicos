@@ -74,18 +74,18 @@
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="detal_arena" class="form-label">Porcentaje de Arena</label>
-                        <input type="number" class="form-control" id="detal_arena" min="1" name="detal_arena" step="1"
+                        <input type="number" class="form-control" id="detal_arena" min="1" name="detal_arena" step="0.1"
                             required>
                     </div>
                     <div class="col-md-4">
                         <label for="detal_limo" class="form-label">Porcentaje de Limo</label>
-                        <input type="number" class="form-control" id="detal_limo" min="1" name="detal_limo" step="1"
+                        <input type="number" class="form-control" id="detal_limo" min="1" name="detal_limo" step="0.1"
                             required>
                     </div>
                     <div class="col-md-4">
                         <label for="detal_arcilla" class="form-label">Porcentaje de Arcilla</label>
                         <input type="number" class="form-control" id="detal_arcilla" min="1" name="detal_arcilla"
-                            step="1" required>
+                            step="0.1" required>
                     </div>
                 </div>
                 <div id="warning-message" style="display:none; color: red; margin-top: 10px;">
