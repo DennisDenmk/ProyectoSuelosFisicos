@@ -63,7 +63,7 @@
                 <div class="form-group">
                     <label>Area en metros:</label>
                     <br>
-                    <input type="number" name="parc_area" id="parc_area" class="form-control" step="0.01" required>
+                    <input type="number" name="parc_area" id="parc_area" class="form-control" min="0.01" step="0.01" required>
                 </div>
 
                 <div class="form-group">
