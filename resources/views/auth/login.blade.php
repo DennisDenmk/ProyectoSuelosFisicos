@@ -38,7 +38,7 @@
             </form>
             <br>
             <a href="{{ url('/RegistrarNuevoUsuario') }}" style="text-decoration: none;">¿No tienes
-                cuenta?Registrate!!</a>
+                cuenta? Registrate aquí</a>
             <br>
         </div>
     </div>

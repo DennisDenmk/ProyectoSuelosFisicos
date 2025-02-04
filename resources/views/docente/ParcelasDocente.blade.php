@@ -26,6 +26,7 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Área</th>
+                            <th>Tipo de suelo</th>
                             <th>Coordenadas</th>
                             <th>Descripción</th>
                             <th>Acciones</th>
@@ -36,6 +37,7 @@
                             <tr>
                                 <td>{{ $parcela->parc_nombre }}</td>
                                 <td>{{ $parcela->parc_area }}</td>
+                                <td>{{ $parcela->TipoSuelo->tipos_nombre}}</td>
                                 <td>{{ $parcela->parc_coord_la }}, {{ $parcela->parc_coord_lo }}</td>
                                 <td>{{ $parcela->parc_descripcion }}</td>
                                 <td>
@@ -49,7 +51,7 @@
                                             <button type="submit" class="btnEliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta parcela?');">Eliminar</button>
                                         </form>
                                         -->
-                                        <a href="{{ route('parcelas.editar', ['id' => $parcela->parc_id]) }}" class="btnEditar">Editar</a>
+                                        <a href="{{ route('parcelas.editar', ['id' => $parcela->parc_id]) }}" class="btnMuestra">Editar Muestra</a>
                                     @endif
 
                                 </td>

@@ -43,9 +43,9 @@
             </a>
         </div>
     </header>
-    <div class="container mx-auto mt-8">
+    <div class="container mx-auto md:w-[80%] mt-8">
         <!-- Filtro -->
-        <div class="mb-6">
+       <!-- <div class="mb-6">
             <label for="filterSelect" class="block text-[#688828] font-medium">Buscar por:</label>
             <select id="filterSelect"
                 class="block w-full border border-[#688828] rounded mt-2 p-2 focus:outline-none focus:ring-2 focus:ring-green-500">
@@ -57,9 +57,9 @@
 
             <div id="searchContainer">
                 <!-- Aquí se actualizará el input o dropdown según el filtro seleccionado -->
-                <input type="text" id="searchInput" class="border p-2 mt-2" placeholder="Buscar...">
+              <!--   <input type="text" id="searchInput" class="border p-2 mt-2" placeholder="Buscar...">
             </div>
-        </div>
+        </div>-->
 
         @if ($muestras->isEmpty())
             <p class="text-gray-600 text-center">No hay muestras registradas.</p>
@@ -68,12 +68,12 @@
                 <thead class="bg-[#688828] text-white">
                     <tr>
                         <th class="px-4 py-2">ID de Muestra</th>
-                        <th class="px-4 py-2">PARCELA</th>
-                        <th class="px-4 py-2">HUMEDAD</th>
-                        <th class="px-4 py-2">ESTRUCTURA</th>
-                        <th class="px-4 py-2">POROSIDAD</th>
+                        <th class="px-4 py-2">Parcela</th>
+                        <th class="px-4 py-2">Humedad</th>
+                        <th class="px-4 py-2">Estructura</th>
+                        <th class="px-4 py-2">Porosidad</th>
                         <th class="px-4 py-2">Composición (Gráfico)</th>
-                        <th class="px-4 py-2">TEXTURA</th>
+                        <th class="px-4 py-2">Textura</th>
                         <th class="px-4 py-2">Fecha de Registro</th>
                         <th class="px-4 py-2">Acciones</th>
                     </tr>
@@ -84,6 +84,9 @@
                             <td class="px-4 py-2">{{ $muestra->muest_id }}</td>
                             <td class="px-4 py-2">{{ $muestra->parcela->parc_id }}</td>
                             <td class="px-4 py-2">
+                                <p>Peso humedo: {{ $muestra->detalles->detal_pesohumedo}}</p>
+                                <p>Peso humedo: {{ $muestra->detalles->detal_pesoseco}}</p>
+                                Humedad:
                                 @if ($muestra->detalles)
                                     @php
                                         // Calcular la humedad con la fórmula
@@ -96,7 +99,27 @@
                             </td>
 
                             <td class="px-4 py-2">
-                                {{ $muestra->detalles->estructura->estru_descripcion }}
+                                @php
+                                // Mapea las claves de estructura con las rutas de las imágenes
+                                $estructura_imagen = [
+                                    'E001' => 'E001.jpg',
+                                    'E002' => 'E002.jpg',
+                                    'E003' => 'E003.jpg',
+                                    'E004' => 'E004.jpg',
+                                    'E005' => 'E005.jpg',
+                                    'E006' => 'E006.jpg',
+                                    'E007' => 'E007.jpg',
+                                ];
+
+                                // Obtiene la imagen según la estructura
+                                $imagen = isset($estructura_imagen[$muestra->detalles->estru_id])
+                                    ? $estructura_imagen[$muestra->detalles->estru_id]
+                                    : 'default.jpg';
+                            @endphp
+
+                            <!-- Mostrar la imagen de la estructura -->
+                            <img src="{{ asset('images/' . $imagen) }}" alt="{{ $muestra->detalles->estru_id }}"
+                                class="w-32 h-32 object-cover">
                             </td>
                             <td class="px-4 py-2">
                                 <!-- Mostrar el valor de detal_porosidad -->
@@ -108,30 +131,10 @@
                             </td>
 
                             <td class="px-4 py-2">
-                                <canvas id="chart-{{ $loop->index }}" class="mx-auto"></canvas>
+                                <canvas id="chart-{{ $loop->index }}" class="mx-auto w-40 h-40"></canvas>
                             </td>
                             <td class="px-4 py-2">
-                                @php
-                                    // Mapea las claves de estructura con las rutas de las imágenes
-                                    $estructura_imagen = [
-                                        'E001' => 'E001.jpg',
-                                        'E002' => 'E002.jpg',
-                                        'E003' => 'E003.jpg',
-                                        'E004' => 'E004.jpg',
-                                        'E005' => 'E005.jpg',
-                                        'E006' => 'E006.jpg',
-                                        'E007' => 'E007.jpg',
-                                    ];
-
-                                    // Obtiene la imagen según la estructura
-                                    $imagen = isset($estructura_imagen[$muestra->detalles->estru_id])
-                                        ? $estructura_imagen[$muestra->detalles->estru_id]
-                                        : 'default.jpg';
-                                @endphp
-
-                                <!-- Mostrar la imagen de la estructura -->
-                                <img src="{{ asset('images/' . $imagen) }}" alt="{{ $muestra->detalles->estru_id }}"
-                                    class="w-32 h-32 object-cover">
+                                {{ $muestra->detalles->obtenerTextura()}}
                             </td>
                             <td class="px-4 py-2">{{ $muestra->muest_fecharegistro }}</td>
                             <td>
@@ -142,7 +145,7 @@
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        <button type="submit" class="rounded-md p-3 mr-8 border-[3px] border-[#506823] bg-white text-[#688828] w-500 hover:bg-[#d4d3d3] border-hover">Eliminar</button>
 
                                     </form>
                                 @endif

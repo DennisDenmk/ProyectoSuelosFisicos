@@ -53,12 +53,12 @@
 
             <div class="mb-3">
                 <label for="parc_coord_la" class="form-label">Coordenada Latitud</label>
-                <input type="number" name="parc_coord_la" class="form-control" value="{{ $parcela->parc_coord_la }}" required>
+                <input type="number" name="parc_coord_la" class="form-control" step="0.01"  value="{{ $parcela->parc_coord_la }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="parc_coord_lo" class="form-label">Coordenada Longitud</label>
-                <input type="number" name="parc_coord_lo" class="form-control" value="{{ $parcela->parc_coord_lo }}" required>
+                <input type="number" name="parc_coord_lo" class="form-control" step="0.01"  value="{{ $parcela->parc_coord_lo }}" required>
             </div>
 
             <div class="mb-3">

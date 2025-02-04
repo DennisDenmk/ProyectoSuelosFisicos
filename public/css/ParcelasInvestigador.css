@@ -102,6 +102,7 @@ th {
 
 .btnMuestra {
     display: inline-block;
+    justify-content: center;
     width: 35%;
     text-align: center;
     padding: 10px;
@@ -110,7 +111,7 @@ th {
     color: #688828;
     text-decoration: none;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 10px;
     cursor: pointer;
 }
 
