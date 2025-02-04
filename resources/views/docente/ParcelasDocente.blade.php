@@ -51,7 +51,7 @@
                                             <button type="submit" class="btnEliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta parcela?');">Eliminar</button>
                                         </form>
                                         -->
-                                        <a href="{{ route('parcelas.editar', ['id' => $parcela->parc_id]) }}" class="btnMuestra">Editar Muestra</a>
+                                        <a href="{{ route('parcelas.editar', ['id' => $parcela->parc_id]) }}" class="btnMuestra">Editar Parcela</a>
                                     @endif
 
                                 </td>

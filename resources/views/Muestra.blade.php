@@ -75,17 +75,17 @@
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="detal_arena" class="form-label">Porcentaje de Arena</label>
-                        <input type="number" class="form-control" id="detal_arena" name="detal_arena" step="1"
+                        <input type="number" class="form-control" id="detal_arena" min="1" name="detal_arena" step="1"
                             required>
                     </div>
                     <div class="col-md-4">
                         <label for="detal_limo" class="form-label">Porcentaje de Limo</label>
-                        <input type="number" class="form-control" id="detal_limo" name="detal_limo" step="1"
+                        <input type="number" class="form-control" id="detal_limo" min="1" name="detal_limo" step="1"
                             required>
                     </div>
                     <div class="col-md-4">
                         <label for="detal_arcilla" class="form-label">Porcentaje de Arcilla</label>
-                        <input type="number" class="form-control" id="detal_arcilla" name="detal_arcilla"
+                        <input type="number" class="form-control" id="detal_arcilla" min="1" name="detal_arcilla"
                             step="1" required>
                     </div>
                 </div>
@@ -96,19 +96,19 @@
                 <!-- Peso y porosidad -->
                 <div class="row g-3 mt-3">
                     <div class="col-md-4">
-                        <label for="detal_pesohumedo" class="form-label">Peso Húmedo</label>
+                        <label for="detal_pesohumedo" class="form-label">Peso Húmedo(gramos)</label>
                         <input type="number" class="form-control" id="detal_pesohumedo" name="detal_pesohumedo"
                             step="0.01" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="detal_pesoseco" class="form-label">Peso Seco</label>
+                        <label for="detal_pesoseco" class="form-label">Peso Seco(gramos)</label>
                         <input type="number" class="form-control" id="detal_pesoseco" name="detal_pesoseco"
                             step="0.01" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="detal_porosidad" class="form-label">Porosidad</label>
+                        <label for="detal_porosidad" class="form-label">Porosidad(um)</label>
                         <input type="number" class="form-control" id="detal_porosidad" name="detal_porosidad"
-                            step="0.01" required>
+                            step="0.01" min="0.01" required>
                     </div>
                 </div>
 
