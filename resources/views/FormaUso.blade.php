@@ -18,21 +18,23 @@
     <div class="container">
         <!-- Columna Derecha -->
         <div class="right-column">
-            <p>1. Inicio de Sesión
+            <p>
+            <h2>1. Inicio de Sesión</h2>
             <p> El usuario accede al sistema ingresando su correo electrónico y contraseña.
                 Opción de recuperar contraseña en caso de olvido.</p>
             </p>
-            <br>
+            </p>
+
             <p>
-                2. Panel Principal
+            <h2>2. Panel Principal</h2>
             <p>Acceso a distintas secciones:</p>
             <p>Ver Muestras (para analizar datos del suelo).</p>
             <p>Ver Perfil (para gestionar información personal).</p>
             <p>Ver Parcelas (para gestionar las parcelas registradas).</p>
             </p>
-            <br>
+
             <p>
-                3. Registro de una Nueva Parcela
+            <h2>3. Registro de una Nueva Parcela</h2>
             <p>Acceder a la opción "Registrar Parcela".</p>
             <p>Ingresar los siguientes datos:</p>
             <p>Nombre de la Parcela.</p>
@@ -41,24 +43,24 @@
             <p>Descripción opcional del terreno.</p>
             <p>Confirmar y guardar la información.</p>
             </p>
-            <br>
+
             <p>
-                4. Registro de Muestras de Suelo
-                <p>Acceder a la opción "Agregar Muestra".</p>
-                <p>Seleccionar una parcela previamente registrada.</p>
-                <p>Ingresar datos de la muestra:</p>
-                <p>Estructura del suelo (granular, prismática, etc.).</p>
-                <p>Porosidad (macroporos o microporos).</p>
-                <p>Composición del suelo (% de arena, limo y arcilla).</p>
-                <p>Peso húmedo y seco.</p>
-                <p>Fecha de registro.</p>
-                <p>Guardar la muestra.</p>            
+            <h2>4. Registro de Muestras de Suelo</h2>
+            <p>Acceder a la opción "Agregar Muestra".</p>
+            <p>Seleccionar una parcela previamente registrada.</p>
+            <p>Ingresar datos de la muestra:</p>
+            <p>Estructura del suelo (granular, prismática, etc.).</p>
+            <p>Porosidad (macroporos o microporos).</p>
+            <p>Composición del suelo (% de arena, limo y arcilla).</p>
+            <p>Peso húmedo y seco.</p>
+            <p>Fecha de registro.</p>
+            <p>Guardar la muestra.</p>
             </p>
-            <br>
-            <p> 
-                5.Gestión de Datos
-                <p>Buscar parcelas y muestras.</p>
-                <p>Actualizar datos en el perfil.</p>
+
+            <p>
+            <h2>5.Gestión de Datos</h2>
+            <p>Buscar parcelas y muestras.</p>
+            <p>Actualizar datos en el perfil.</p>
             </p>
         </div>
     </div>
