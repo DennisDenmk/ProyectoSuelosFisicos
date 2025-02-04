@@ -45,7 +45,6 @@
             <br>
             <p><strong>Parcela:</strong>{{ $parcela->parc_nombre }}</p>
             <p><strong>Código:</strong> {{ $parcela->parc_id }}</p>
-            <p><strong>Coordenadas:</strong> {{ $parcela->parc_id }}</p>
             <p><strong>Area(metros):</strong> {{ $parcela->parc_area }}</p>
             <p><strong>Latitud:</strong> {{ $parcela->parc_coord_la }}</p>
             <p><strong>Longitud:</strong> {{ $parcela->parc_coord_lo }}</p>
