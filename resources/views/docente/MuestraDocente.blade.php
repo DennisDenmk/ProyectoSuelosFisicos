@@ -123,7 +123,7 @@
                             </td>
                             <td class="px-4 py-2">
                                 <!-- Mostrar el valor de detal_porosidad -->
-                                Valor:{{ $muestra->detalles->detal_porosidad }}
+                                Valor: {{ $muestra->detalles->detal_porosidad }}
                                 <br>
                                 Tipo:
                                 <span
