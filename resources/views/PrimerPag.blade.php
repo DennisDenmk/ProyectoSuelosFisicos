@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soil Management</title>
-    <link rel="stylesheet" href="{{ asset('css/PrimeraPag.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/PrimeraPag.css') }}">
 </head>
 
 <body>
@@ -22,19 +22,19 @@
                     <ul>
                         <li><a href="#">Menu</a>
                             <ul>
-                                <li><a href="{{url('login')}}">Fisico</a></li>
+                                <li><a href="{{ url('login') }}">Fisico</a></li>
                                 <li><a href="https://sistema-gestionsuelos-biologica.onrender.com">Quimico</a></li>
                                 <li><a href="#">Biológico</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Informacion</a>
                             <ul>
-                                <li><a href="{{url('/Informacion')}}">Propiedades Suelo</a></li>
-                                <li><a href="{{url('/Vision')}}">Vision</a></li>
-                                <li><a href="{{url('/Mision')}}">Mision</a></li>
+                                <li><a href="{{ url('/Informacion') }}">Propiedades Suelo</a></li>
+                                <li><a href="{{ url('/Vision') }}">Vision</a></li>
+                                <li><a href="{{ url('/Mision') }}">Mision</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{url('/FormaUso')}}">Forma de Uso</a></li>
+                        <li><a href="{{ url('/FormaUso') }}">Forma de Uso</a></li>
                     </ul>
                 </nav>
             </div>
@@ -71,21 +71,21 @@
             </p>
         </div>
     </div>
-    
+
     <footer>
         <div class="footer-content">
             <h3>Contactos:</h3>
             <div class="contacts">
-                <p>Jurado Oskar - 0989111235</p>
-                <p>Mejia Dennis - 0989111235</p>
-                <p>Ramos David - 0989111235</p>
-                <p>Rueda Carlos - 0989111235</p>
+                <p>Jurado Oskar- 09 89 111 235</p>
+                <p>Mejia Dennis- 09 98 724 2851</p>
+                <p>Ramos David- 09 98 335 037</p>
+                <p>Rueda Carlos- 09 59 102 450</p>
             </div>
             <div class="emails">
                 <p>opjuradoa@utn.edu.ec</p>
-                <p>opjuradoa@utn.edu.ec</p>
-                <p>opjuradoa@utn.edu.ec</p>
-                <p>opjuradoa@utn.edu.ec</p>
+                <p>damejiaj@utn.edu.ec</p>
+                <p>fdramosm@utn.edu.ec</p>
+                <p>crruedaf@utn.edu.ec</p>
             </div>
         </div>
     </footer>

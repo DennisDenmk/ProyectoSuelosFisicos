@@ -33,10 +33,12 @@ body {
 
 /* Contenedor principal */
 .container {
+
+    margin-top: 70px;
     display: flex;
     width: 80%;
     /* Reduce el ancho total */
-    max-width: 650px;
+    max-width: 900px;
     /* Establece un ancho máximo más pequeño */
     background: #F6FAEB;
     border-radius: 10px;
@@ -48,8 +50,6 @@ body {
 
 /* Columna Derecha */
 .right-column {
-    display: flex;
-    justify-content: center;
     align-items: center;
     padding: 25px;
     /* Reduce el relleno interno */
@@ -57,11 +57,8 @@ body {
     border-radius: 10px;
     width: 100%;
     /* Haz que ocupe todo el ancho disponible */
-    max-width: 600px;
+    max-width: 850px;
     /* Define un límite máximo más pequeño */
-    margin: 0 auto;
-    /* Centra el contenedor */
-    text-align: center;
 }
 
 
@@ -80,7 +77,7 @@ body {
     font-size: 1rem;
     cursor: pointer;
 }
-    
+
 .btnvol:hover {
     background: #d4d3d3;
     border-color: #506823;
