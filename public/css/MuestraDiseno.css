@@ -8,7 +8,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-}   
+}
+
+.cuerpo {
+    background-color: #EBF3D4;
+}
 
 .header {
     position: fixed;
@@ -28,9 +32,11 @@ body {
 .header h2 {
     margin-left: 30px;
 }
-p{
+
+p {
     font-size: 20px;
 }
+
 /* Contenedor principal */
 .container {
     display: flex;

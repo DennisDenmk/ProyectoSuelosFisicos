@@ -13,7 +13,7 @@ body {
 
 /* Encabezado */
 .header {
-    position: fixed;
+    position:absolute;
     top: 0;
     width: 100%;
     background: #6B882E;
@@ -42,6 +42,7 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
+    width: 10%;
 }
 
 .btnvol:hover {
@@ -57,44 +58,54 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 30px;
     width: 90%;
-    max-width: 500px;
+    max-width: 700px;
+    margin-top: 70px;
+}
+
+.right-column input {
+    width: 97%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.right-column textarea {
+    width: 97%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.right-column .btn {
+    margin-left: 30%;
+    margin-top: 15px;
+    width: 40%;
     text-align: center;
-}
-
-/* Formulario */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-/* Etiquetas */
-.form-label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #3F6212;
-    text-align: left;
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-/* Campos de entrada - Todos del mismo tamaño y centrados */
-.form-control {
-    width: 100%;
-    max-width: 400px;  /* Tamaño uniforme */
-    padding: 12px;
-    margin-top: 5px;
-    border: 2px solid #6B882E;
+    padding: 10px;
+    background: white;
+    border: 3px solid #688828;
+    color: #688828;
+    text-decoration: none;
     border-radius: 5px;
-    font-size: 16px;
-    transition: border 0.3s ease-in-out;
-    text-align: center;  /* Texto centrado dentro del input */
+    font-size: 1rem;
+    cursor: pointer;
+    justify-content: center;
+
 }
 
-.form-control:focus {
+.right-column .btn:hover {
+
+    background: #d4d3d3;
     border-color: #506823;
-    outline: none;
+    color: #506823;
+
+}
+
+.form-group {
+    margin-top: 20px;
 }
 
 /* Botón de envío */
@@ -108,7 +119,8 @@ form {
     font-size: 16px;
     cursor: pointer;
     width: 100%;
-    max-width: 400px;  /* Coincide con el tamaño de los inputs */
+    max-width: 400px;
+    /* Coincide con el tamaño de los inputs */
     transition: background 0.3s ease-in-out;
 }
 
