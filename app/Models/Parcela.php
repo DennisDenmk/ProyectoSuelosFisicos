@@ -36,7 +36,7 @@ class Parcela extends Model
     }
     public function tipoSuelo()
     {
-        return $this->belongsTo(tipoSuelo::class, 'tipos_id', 'tipos_id');
+        return $this->belongsTo(TipoSuelo::class, 'tipos_id', 'tipos_id');
     }
     public function muestras()
     {
