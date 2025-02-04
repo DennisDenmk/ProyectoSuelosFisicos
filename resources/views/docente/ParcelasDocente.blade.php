@@ -41,11 +41,15 @@
                                 <td>
                                     @if ($parcela->user_id == $user->user_id) 
                                         <a href="{{ route('muestras.show',['parcela_id' => $parcela->parc_id]) }}" class="btnMuestra">Agregar Muestra</a>
+
+                                        <!--
                                         <form action="{{ route('borrar.parcela', ['id' => $parcela->parc_id]) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btnEliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta parcela?');">Eliminar</button>
                                         </form>
+                                        -->
+                                        <a href="{{ route('parcelas.editar', ['id' => $parcela->parc_id]) }}" class="btnEditar">Editar</a>
                                     @endif
 
                                 </td>

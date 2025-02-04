@@ -1,0 +1,135 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background: #EBF3D4;
+    color: #003300;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Encabezado */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #6B882E;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.header h2 {
+    margin-left: 30px;
+}
+
+/* Botón Volver */
+.btnvol {
+    margin-right: 30px;
+    padding: 10px 15px;
+    background: white;
+    border: 3px solid #688828;
+    color: #688828;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btnvol:hover {
+    background: #d4d3d3;
+    border-color: #506823;
+    color: #506823;
+}
+
+/* Contenedor principal */
+.container {
+    background: #F6FAEB;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Etiquetas */
+.form-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3F6212;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Campos de entrada - Todos del mismo tamaño y centrados */
+.form-control {
+    width: 100%;
+    max-width: 400px;  /* Tamaño uniforme */
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #6B882E;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out;
+    text-align: center;  /* Texto centrado dentro del input */
+}
+
+.form-control:focus {
+    border-color: #506823;
+    outline: none;
+}
+
+/* Botón de envío */
+.btn-success {
+    margin-top: 20px;
+    padding: 12px;
+    background: #6B882E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;  /* Coincide con el tamaño de los inputs */
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+    background: #506823;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .form-control {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .btn-success {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

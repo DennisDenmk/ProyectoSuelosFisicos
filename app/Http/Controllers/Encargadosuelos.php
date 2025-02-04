@@ -23,6 +23,7 @@ class Encargadosuelos extends Controller
         $estructura = Estructura::all();
         return view('Muestra', compact('parcela'), compact('estructura'));
     }
+
     public function muestradestroy($id)
     {
         try {
@@ -60,7 +61,6 @@ class Encargadosuelos extends Controller
             return back()->withErrors(['error' => 'Error al eliminar la parcela: ' . $e->getMessage()]);
         }
     }
-
 
     public function crear(Request $request)
     {
@@ -110,7 +110,6 @@ class Encargadosuelos extends Controller
         // Retornar la vista con las parcelas y los tipos de suelos
         return view('cliente.ParcelaEstudiante', compact('tiposSuelos', 'parcelas'));
     }
-
 
     public function misParcelas()
     {
@@ -209,5 +208,48 @@ class Encargadosuelos extends Controller
                 'error' => 'Ocurrió un error: ' . $e->getMessage(),
             ]);
         }
+
     }
+
+    public function mostrarFormularioEdicion($id)
+    {
+        $parcela = Parcela::findOrFail($id);
+
+        // Verificar si el usuario tiene permiso para editar
+        if (Auth::user()->user_id !== $parcela->user_id) {
+            return back()->withErrors(['error' => 'No tienes permiso para editar esta parcela.']);
+        }
+
+        return view('docente.EditarParcela', compact('parcela'));
+    }
+
+    public function actualizarParcela(Request $request, $id)
+    {
+        try {
+            $parcela = Parcela::findOrFail($id);
+
+            // Validar los datos ingresados
+            $validatedData = $request->validate([
+                'parc_nombre' => 'nullable|string|max:50',
+                'parc_area' => 'required|numeric',
+                'parc_coord_la' => 'required|numeric',
+                'parc_coord_lo' => 'required|numeric',
+                'parc_descripcion' => 'nullable|string'
+            ]);
+
+            // Verificar si el usuario tiene permiso para editar
+            if (Auth::user()->user_id !== $parcela->user_id) {
+                return back()->withErrors(['error' => 'No tienes permiso para editar esta parcela.']);
+            }
+
+            // Actualizar la parcela con los datos validados
+            $parcela->update($validatedData);
+
+            return back()->with('success', 'Parcela actualizada con éxito.');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Error algo ha salido mal' ]);
+        }
+    }
+
+
 }

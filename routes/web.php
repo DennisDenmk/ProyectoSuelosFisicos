@@ -86,7 +86,10 @@ Route::middleware(['auth'])->group(function () {
     //eliminar parcela
     Route::delete('/BorrarParcela/{id}', [Encargadosuelos::class, 'parcelaDestroy'])->name('borrar.parcela');
     Route::delete('/BorrarMuestra/{id}', [Encargadosuelos::class, 'muestradestroy'])->name('borrar.muestra');
-
+    //Editar Parcela
+    Route::get('/EditarParcela/{id}', [Encargadosuelos::class, 'mostrarFormularioEdicion'])->name('parcelas.editar');
+    Route::put('/ActualizarParcela/{id}', [Encargadosuelos::class, 'actualizarParcela'])->name('parcelas.actualizar');
+    
     Route::get('/Docente/Muestras', [VistaController::class, 'mostrarMuestras'])->name('verregistro');
     Route::get('/ParcelasDocente',[VistaController::class, 'mostrarParcelasDocente'])->name('parcelas.docente');
     //Estudiante
